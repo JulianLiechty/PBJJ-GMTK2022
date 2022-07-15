@@ -16,7 +16,7 @@ public class FollowCamera : MonoBehaviour
 
     private DiceRoller roller;
     private GameObject DiceObject;
-    private float currentRotation;
+    private float rotation;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,8 @@ public class FollowCamera : MonoBehaviour
         DiceObject = GameObject.FindGameObjectsWithTag("Dice")[0];
         roller = DiceObject.GetComponent<DiceRoller>();
         PositionCamera();
-        currentRotation = 0;
+        rotation = 0;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -37,19 +38,14 @@ public class FollowCamera : MonoBehaviour
         }
 
         // Rotate the camera when the mouse is moved in the X direction.
-        float addedRotation = Input.GetAxis("Mouse X") * cameraSensitivity;
-        currentRotation += addedRotation;
+        rotation = Input.GetAxis("Mouse X") * cameraSensitivity;
         PositionCamera();
     }
 
     private void PositionCamera()
     {
         Vector3 dicePosition = DiceObject.transform.position;
-
-        // Transform position set with correct radius.
         transform.position = (transform.position - dicePosition).normalized * radius + dicePosition;
-        transform.RotateAround(dicePosition, Vector3.up, currentRotation);
-        //desiredPosition = (transform.position - center.position).normalized * radius + center.position;
-        //transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.deltaTime * radiusSpeed);
+        transform.RotateAround(dicePosition, Vector3.up, rotation);
     }
 }
