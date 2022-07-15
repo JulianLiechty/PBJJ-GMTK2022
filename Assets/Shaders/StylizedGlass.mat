@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6375131872174152696
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 0
---- !u!114 &-1109966578734090003
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -33,11 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GlassTest
-  m_Shader: {fileID: -6465566751694194690, guid: d422620b9fe9d480abdb4b7dae98c783, type: 3}
+  m_Name: StylizedGlass
+  m_Shader: {fileID: -6465566751694194690, guid: 09ddccab7e1a241c08cd59c6784eef27, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -46,11 +20,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _SampleTexture2D_5ef22f40de2a4637a91af458761e2597_Texture_1:
+    - _SampleTexture2D_22b50de4fc3f4901908398604fbb62b4_Texture_1:
         m_Texture: {fileID: 2800000, guid: 6f585a6860e844262b1e6846bc0500d1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_ba98ad802f644a80aaff6b0a771d9f91_Texture_1:
+    - _SampleTexture2D_821ebdae3f54407183c9763393cbda90_Texture_1:
         m_Texture: {fileID: 2800000, guid: dec33fe94809843879c8ba5082c7022c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -68,13 +42,32 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BUILTIN_QueueControl: 0
-    - _BUILTIN_QueueOffset: 0
-    - _IOR: 0
-    - _Metallic: 0
+    - _InnerRimPower: 0.484
+    - _InnerRimSmoothness: 0.1
+    - _LightSpecCutoff: 0.572
+    - _OuterRimPower: 0.4
+    - _OuterRimSmoothness: 0.033
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0
-    - _Transparency: 1
-    m_Colors: []
+    - _RimPower: 1
+    - _Smoothness: 0.342
+    - _ViewSpecCutoff: 1
+    m_Colors:
+    - _InnerRimColor: {r: 0.117647044, g: 0.54901963, b: 0.3589207, a: 0.4627451}
+    - _RimColor: {r: 0.3422947, g: 0, b: 1, a: 0.45490196}
+    - _SpecColor: {r: 0.6955513, g: 1, b: 0, a: 1}
+    - _Tint: {r: 0.6000801, g: 0.83516395, b: 0.8773585, a: 0.5176471}
   m_BuildTextureStacks: []
+--- !u!114 &7389793864612760519
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
