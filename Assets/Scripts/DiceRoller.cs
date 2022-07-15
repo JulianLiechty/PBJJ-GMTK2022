@@ -30,6 +30,6 @@ public class DiceRoller : MonoBehaviour
     private void Swing()
     {
         Debug.Log("Space key was pressed.");
-        rb.AddForce(new Vector3(1, 0, 0), ForceMode.Impulse);
+        rb.AddForce(new Vector3(10, 0, 0), ForceMode.Impulse);
     }
 }
