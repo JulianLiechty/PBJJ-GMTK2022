@@ -33,11 +33,12 @@ public class DiceSolver : MonoBehaviour
 
     private void Update()
     {
-        int Value = CheckDiceStop();
+        int value = CheckDiceStop();
 
-        if(Value != 0 && ShouldEvaluate)
+        if(value != 0 && ShouldEvaluate)
         {
-            OnDiceStop(Value);
+            OnDiceStop(value);
+            ApplyPowersFromFaceUp(value);
             ShouldEvaluate = false;
         }
     }
@@ -72,37 +73,31 @@ public class DiceSolver : MonoBehaviour
         diePowers.ResetPowersToDefault();
         if (RayCastFromDice(transform.TransformDirection(Vector3.forward)))
         {
-            diePowers.Face4Power();
             return Forward;
         }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.down)))
         {
-            diePowers.Face6Power();
             return Down;
         }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.right)))
         {
-            diePowers.Face5Power();
             return Right;
         }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.left)))
         {
-            diePowers.Face3Power();
             return Left;
         }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.back)))
         {
-            diePowers.Face2Power();
             return Back;
         }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.up)))
         {
-            diePowers.Face1Power();
             return Up;
         }
 
@@ -125,6 +120,43 @@ public class DiceSolver : MonoBehaviour
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void ApplyPowersFromFaceUp(int value)
+    {
+        diePowers.ResetPowersToDefault();
+        if (value == Forward)
+        {
+            diePowers.Face4Power();
+        }
+
+        if (value == Down)
+        {
+            diePowers.Face6Power();
+        }
+
+        if (value == Right)
+        {
+            diePowers.Face5Power();
+        }
+
+        if (value == Left)
+        {
+            diePowers.Face3Power();
+        }
+
+        if (value == Back)
+        {
+            diePowers.Face2Power();
+        }
+
+        if (value == Up)
+        {
+            diePowers.Face1Power();
+        }
     }
 
     public bool CanEvaluate
