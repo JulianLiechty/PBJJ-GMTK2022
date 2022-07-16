@@ -62,7 +62,11 @@ public class FollowCamera : MonoBehaviour
     [Range(1,6)]
     private int faceValueThatAllowsAirJumps;
     private int airJumpsUsed = 0;
+    [SerializeField]
+    private float airJumpForceMultiplier;
 
+    [SerializeField]
+    private float EvaluationInterval = 2f;
 
     private void Awake()
     {
@@ -155,6 +159,11 @@ public class FollowCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && CanTossDice)
         {
             SwingForce += Charge * Time.deltaTime;
+
+            //makes the charge ping pong between max and min value
+            if(SwingForce > MaxCharge || SwingForce < 0)
+                Charge = -Charge;
+
             SwingForce = Mathf.Clamp(SwingForce, 0, MaxCharge);
         }
 
@@ -167,7 +176,10 @@ public class FollowCamera : MonoBehaviour
             if(!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
-            roller.ShouldSwing(SwingForce);
+            if(CanHitDiceInAir)
+                roller.ShouldSwing(SwingForce * airJumpForceMultiplier);
+            else
+                roller.ShouldSwing(SwingForce);
             airJumpsUsed++;
             SwingForce = 0;
 
@@ -212,7 +224,7 @@ public class FollowCamera : MonoBehaviour
 
     IEnumerator SetCanEvaluate()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(EvaluationInterval);
 
         DiceObject.GetComponent<DiceSolver>().CanEvaluate = true;
 
