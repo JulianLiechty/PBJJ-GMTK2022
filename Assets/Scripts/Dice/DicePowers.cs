@@ -21,12 +21,17 @@ public class DicePowers : MonoBehaviour
     public float defaultMass = 2f;
     public float defaultFriction = 0.5f;
     public float defaultBounciness = 0.5f;
+    public float defaultGravityScale = 1f;
     public float moreMass = 4f;
     public float moreFriction = 0.75f;
     public float moreBounciness = 0.75f;
+    public float moreGravity = 2f;
     public float lessMass = 1f;
     public float lessFriction = 0.25f;
     public float lessBounciness = 0.25f;
+    public float lessGravity = 0.5f;
+
+    private float gravityScale;
 
 
     /*
@@ -49,9 +54,8 @@ public class DicePowers : MonoBehaviour
     public void Face3Power()
     {
         // Increase friction
-        Debug.Log("Friction Increase.");
-        collider.material.dynamicFriction = moreFriction;
-        collider.material.staticFriction = moreFriction;
+        Debug.Log("Gravity Increase.");
+        gravityScale = moreGravity;
     }
     public void Face4Power()
     {
@@ -63,8 +67,8 @@ public class DicePowers : MonoBehaviour
     public void Face5Power()
     {
         // Decrease bounciness
-        Debug.Log("Bounciness Decrease.");
-        collider.material.bounciness = lessBounciness;
+        Debug.Log("Gravity Decrease.");
+        gravityScale = lessGravity;
     }
     public void Face6Power()
     {
@@ -76,6 +80,7 @@ public class DicePowers : MonoBehaviour
     public void ResetPowersToDefault()
     {
         rigidBody.mass = defaultMass;
+        gravityScale = defaultGravityScale;
         collider.material.bounciness = defaultBounciness;
         collider.material.dynamicFriction = defaultFriction;
         collider.material.staticFriction = defaultFriction;
@@ -145,5 +150,10 @@ public class DicePowers : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        rigidBody.AddForce(Physics.gravity * gravityScale);
     }
 }
