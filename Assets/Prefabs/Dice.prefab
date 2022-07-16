@@ -356,6 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87112228438f8d8469e865a2967fb782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swingDirection: {fileID: 4118415791187676126}
+  Force: 10
 --- !u!54 &519124852140902614
 Rigidbody:
   m_ObjectHideFlags: 0

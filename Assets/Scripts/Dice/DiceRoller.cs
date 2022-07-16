@@ -7,6 +7,11 @@ public class DiceRoller : MonoBehaviour
     private Rigidbody rb;
     private bool shouldSwing;
 
+    [SerializeField]
+    private Transform swingDirection;
+
+    public float Force;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +34,7 @@ public class DiceRoller : MonoBehaviour
 
     private void Swing()
     {
-        Debug.Log("Space key was pressed.");
-        rb.AddForce(new Vector3(10, 0, 0), ForceMode.Impulse);
+        // IDK why it has to be swingDirection.right, but it does.
+        rb.AddForce(swingDirection.right * Force, ForceMode.Impulse);
     }
 }

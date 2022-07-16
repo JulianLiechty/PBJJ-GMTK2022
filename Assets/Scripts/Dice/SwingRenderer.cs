@@ -12,8 +12,6 @@ public class SwingRenderer : MonoBehaviour
     private Transform rotator;
     private LineRenderer lr;
 
-    public float offset;
-
    
     void Awake()
     {

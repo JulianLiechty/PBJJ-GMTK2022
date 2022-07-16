@@ -35,6 +35,7 @@ public class FollowCamera : MonoBehaviour
         swingRenderer = DiceObject.GetComponentInChildren<SwingRenderer>();
         roller = DiceObject.GetComponent<DiceRoller>();
     }
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -49,8 +50,6 @@ public class FollowCamera : MonoBehaviour
     /// </summary>
     private void CreateConstraints()
     {
-        
-
         // Create the camera's offset from the dice using the editor values.
         currentRotation = new Vector3(cameraFollowDistance, cameraFollowHeight, 0);
 
