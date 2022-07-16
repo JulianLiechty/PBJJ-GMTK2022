@@ -119,5 +119,6 @@ public class FollowCamera : MonoBehaviour
 
         // Set the new constraint.
         positionConstraint.translationOffset = currentRotation;
+        transform.position = DiceObject.transform.position + currentRotation;
     }
 }
