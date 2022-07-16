@@ -114,6 +114,7 @@ MonoBehaviour:
   CanHitDiceInAir: 0
   freeCamMoveSpeed: 0.03
   freeCamLookSensitivity: 3
+  sprintMultiplier: 2
 --- !u!1818360608 &2196284955159375284
 PositionConstraint:
   m_ObjectHideFlags: 0
