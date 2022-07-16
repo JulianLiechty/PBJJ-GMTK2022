@@ -132,6 +132,10 @@ public class FollowCamera : MonoBehaviour
                 freeCamEnabled = true;
                 positionConstraint.enabled = false;
                 aimConstraint.enabled = false;
+                transform.LookAt(DiceObject.transform);
+                Quaternion rotation = transform.rotation;
+                xRotation = rotation.eulerAngles.x;
+                yRotation = rotation.eulerAngles.y;
             }
         }
 
