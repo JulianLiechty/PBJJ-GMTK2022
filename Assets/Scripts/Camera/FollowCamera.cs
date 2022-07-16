@@ -62,6 +62,8 @@ public class FollowCamera : MonoBehaviour
     [Range(1,6)]
     private int faceValueThatAllowsAirJumps;
     private int airJumpsUsed = 0;
+    [SerializeField]
+    private float airJumpForceMultiplier;
 
     [SerializeField]
     private float EvaluationInterval = 2f;
@@ -174,7 +176,10 @@ public class FollowCamera : MonoBehaviour
             if(!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
-            roller.ShouldSwing(SwingForce);
+            if(CanHitDiceInAir && airJumpsUsed > 1)
+                roller.ShouldSwing(SwingForce * airJumpForceMultiplier);
+            else
+                roller.ShouldSwing(SwingForce);
             airJumpsUsed++;
             SwingForce = 0;
 

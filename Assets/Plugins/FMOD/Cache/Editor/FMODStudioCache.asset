@@ -27,33 +27,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
---- !u!114 &-6669495315871263512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX_DieRoll
-  m_EditorClassIdentifier: 
-  Path: event:/SFX_DieRoll
-  Guid:
-    Data1: -937182076
-    Data2: 1279813687
-    Data3: -1489639539
-    Data4: -10666625
-  Banks:
-  - {fileID: -2039704962457642091}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2160
 --- !u!114 &-6232535591308873332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,10 +69,10 @@ MonoBehaviour:
   Path: FMOD/GMTK2022/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637935777235919035
+  lastModified: 637935786934463935
   FileSizes:
   - Name: Desktop
-    Value: 265984
+    Value: 1003904
   Exists: 1
 --- !u!114 &-1763507458564377850
 MonoBehaviour:
@@ -116,10 +89,10 @@ MonoBehaviour:
   Path: FMOD/GMTK2022/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637935777235943910
+  lastModified: 637935786934473907
   FileSizes:
   - Name: Desktop
-    Value: 908
+    Value: 1092
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -140,14 +113,99 @@ MonoBehaviour:
   - {fileID: -6232535591308873332}
   - {fileID: -7054164208596896077}
   - {fileID: 5833270105287052435}
-  - {fileID: -6669495315871263512}
+  - {fileID: 6842765729432880711}
+  - {fileID: 2211855204451818959}
+  - {fileID: 3621383310778521107}
+  - {fileID: 5793659329178973502}
+  - {fileID: 7217599184292757045}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2039704962457642091}
   StringsBanks:
   - {fileID: -1763507458564377850}
-  cacheTime: 637935777235943910
+  cacheTime: 637935786934473907
   cacheVersion: 131591
+--- !u!114 &2211855204451818959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_DieRollTest1
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_DieRollTest1
+  Guid:
+    Data1: -937182076
+    Data2: 1279813687
+    Data3: -1489639539
+    Data4: -10666625
+  Banks:
+  - {fileID: -2039704962457642091}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2160
+--- !u!114 &3621383310778521107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_FirePowerUp
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_FirePowerUp
+  Guid:
+    Data1: -1943407479
+    Data2: 1206447379
+    Data3: -682952797
+    Data4: -628720915
+  Banks:
+  - {fileID: -2039704962457642091}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25180
+--- !u!114 &5793659329178973502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI_OpenTextbox
+  m_EditorClassIdentifier: 
+  Path: event:/UI_OpenTextbox
+  Guid:
+    Data1: -1829616240
+    Data2: 1289047453
+    Data3: -411490157
+    Data4: -764587171
+  Banks:
+  - {fileID: -2039704962457642091}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &5833270105287052435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +233,57 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3656
+--- !u!114 &6842765729432880711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMB_Field
+  m_EditorClassIdentifier: 
+  Path: event:/AMB_Field
+  Guid:
+    Data1: -1522567066
+    Data2: 1268302314
+    Data3: 44435080
+    Data4: -115499482
+  Banks:
+  - {fileID: -2039704962457642091}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 34024
+--- !u!114 &7217599184292757045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_DieRollTest2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_DieRollTest2
+  Guid:
+    Data1: 2056713952
+    Data2: 1082554995
+    Data3: 474114189
+    Data4: -47339091
+  Banks:
+  - {fileID: -2039704962457642091}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
