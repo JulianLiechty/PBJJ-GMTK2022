@@ -51,8 +51,8 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Base_Color: {r: 0.16470586, g: 0.6208706, b: 0.6901961, a: 0}
-    - _Fresnel_Color: {r: 0.6686921, g: 0.2169366, b: 0.7075472, a: 0}
+    - _Base_Color: {r: 0.16470586, g: 0.6208706, b: 0.6901961, a: 1}
+    - _Fresnel_Color: {r: 0.6686921, g: 0.2169366, b: 0.7075472, a: 1}
     - __ofSplots: {r: 5, g: 5, b: 5, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8037466674339355414
