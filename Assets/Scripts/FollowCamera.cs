@@ -23,15 +23,21 @@ public class FollowCamera : MonoBehaviour
     private float constraintY;
     private SwingRenderer swingRenderer;
 
+    private void Awake()
+    {
+        // Grab the constraint components from the camera.
+        positionConstraint = GetComponent<PositionConstraint>();
+        aimConstraint = GetComponent<AimConstraint>();
+
+        DiceObject = GameObject.FindGameObjectsWithTag("Dice")[0];
+
+        // roller and swing renderer so that camera can push, and rotate the swing UI.
+        swingRenderer = DiceObject.GetComponentInChildren<SwingRenderer>();
+        roller = DiceObject.GetComponent<DiceRoller>();
+    }
     // Start is called before the first frame update
     void Start()
-    {
-        DiceObject = GameObject.FindGameObjectsWithTag("Dice")[0];
-        
-        // roller and swing renderer so that camera can push, and rotate the swing UI.
-        swingRenderer = DiceObject.GetComponent<SwingRenderer>();
-        roller = DiceObject.GetComponent<DiceRoller>();
-
+    { 
         // Lock cursor to game window to make the camera feel better to use.
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -43,9 +49,7 @@ public class FollowCamera : MonoBehaviour
     /// </summary>
     private void CreateConstraints()
     {
-        // Grab the constraint components from the camera.
-        positionConstraint = GetComponent<PositionConstraint>();
-        aimConstraint = GetComponent<AimConstraint>();
+        
 
         // Create the camera's offset from the dice using the editor values.
         currentRotation = new Vector3(cameraFollowDistance, cameraFollowHeight, 0);
@@ -72,8 +76,8 @@ public class FollowCamera : MonoBehaviour
             roller.ShouldSwing();
         }
 
-        PositionCamera();
         PrepareInformationForSwingRenderer();
+        PositionCamera();
     }
 
     private void PrepareInformationForSwingRenderer()

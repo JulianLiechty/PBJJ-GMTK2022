@@ -12,6 +12,8 @@ public class SwingRenderer : MonoBehaviour
     private Transform rotator;
     private LineRenderer lr;
 
+    public float offset;
+
    
     void Awake()
     {
@@ -28,6 +30,8 @@ public class SwingRenderer : MonoBehaviour
 
     public void UpdateRenderer(Vector3 direction)
     {
-        rotator.Rotate(direction);
+        // I have no clue why this works, but it has to be this way.
+        rotator.rotation = Quaternion.LookRotation(direction);
+        rotator.rotation *= Quaternion.Euler(0, 90f, 0);
     }
 }
