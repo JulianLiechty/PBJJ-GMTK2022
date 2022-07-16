@@ -10,6 +10,9 @@ public class DiceRoller : MonoBehaviour
     [SerializeField]
     private Transform swingDirection;
 
+    [SerializeField] private float maxForce = 1000f;
+    [SerializeField] private float minForce = 100f;
+
     private float Force;
 
     // Start is called before the first frame update
@@ -35,8 +38,8 @@ public class DiceRoller : MonoBehaviour
 
     private void Swing()
     {
-        float Max = 500;
-        float Min = 100;
+        float Max = maxForce;
+        float Min = minForce;
 
         // IDK why it has to be swingDirection.right, but it does.
         rb.AddForce(swingDirection.right * Force, ForceMode.Impulse);
