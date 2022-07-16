@@ -35,14 +35,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _Contrast: 0.4
-    - _Grain: 0.2
+    - _Grain: 0.35
     - _Metalic: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
     - _VoronoiDensity: 5
     m_Colors:
-    - _Color: {r: 0.4339623, g: 0.2922991, b: 0.1903702, a: 0}
+    - _Color: {r: 0.509434, g: 0.3266517, b: 0.19464225, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7587068783688953898
 MonoBehaviour:
