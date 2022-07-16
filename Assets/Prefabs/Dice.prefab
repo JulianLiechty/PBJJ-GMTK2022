@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452841471121814291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,6 +110,8 @@ MonoBehaviour:
   start: {fileID: 5159629343486924729}
   end: {fileID: 2322684178668730149}
   rotator: {fileID: 4118415791187676126}
+  EndMaxDistance: 15
+  EndMinDistance: 5
 --- !u!120 &8652517543594809628
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -186,4 +186,20 @@ public class FollowCamera : MonoBehaviour
 
         return 0;
     }
+
+    public float CurrentCharge
+    {
+        get
+        {
+            return SwingForce;
+        }
+    }
+
+    public float MaxForce
+    {
+        get
+        {
+            return MaxCharge;
+        }
+    }
 }
