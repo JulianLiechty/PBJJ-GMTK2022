@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{176160d5-55dd-461d-a981-989f14e36fe8}">
+		<property name="assetPath">
+			<value>DieHit/SFX_DieHitGround-024.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.086984126984126983</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f559a1d6-6326-4c94-91e4-c46623082f48}</destination>
+		</relationship>
+	</object>
+</objects>
