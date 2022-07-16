@@ -21,39 +21,51 @@ public class DicePowers : MonoBehaviour
      */
 
     // Increae or decrease friction
-    public void DieFace_Friction()
+    public bool DieFace_Friction()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease bounciness
-    public void DieFace_Bounciness()
+    public bool DieFace_Bounciness()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease mass
-    public void DieFace_Mass()
+    public bool DieFace_Mass()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease mass
-    public void DieFace_Drag()
+    public bool DieFace_Drag()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease power meter speed
-    public void DieFace_PowerMeterSpeed()
+    public bool DieFace_PowerMeterSpeed()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Be on fire and invincible, or be on fire and burn away
-    public void DieFace_OnFire()
+    public bool DieFace_OnFire()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Start is called before the first frame update
