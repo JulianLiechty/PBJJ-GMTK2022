@@ -26,6 +26,6 @@ public class SwingRenderer : MonoBehaviour
 
     public void UpdateRenderer(Vector3 direction)
     {
-
+        
     }
 }
