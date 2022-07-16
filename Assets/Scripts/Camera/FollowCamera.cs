@@ -34,6 +34,12 @@ public class FollowCamera : MonoBehaviour
     private bool CanHitDiceInAir = false;
     private bool CanTossDice = true;
 
+    // Free camera settings.
+    [SerializeField]
+    private float freeCamMoveSpeed;
+    [SerializeField]
+    private float freeCamLookSensitivity;
+
     // Dice variables.
     private GameObject DiceObject;
     private DiceRoller roller;
@@ -43,7 +49,11 @@ public class FollowCamera : MonoBehaviour
     private Vector3 currentRotation;
     private PositionConstraint positionConstraint;
     private AimConstraint aimConstraint;
-    private float verticalAim;
+    private float verticalAim = 0;
+    private bool freeCamEnabled = false;
+    private float yRotation = 0f;
+    private float xRotation = 0f;
+    private Rigidbody rb;
 
 
     private void Awake()
@@ -51,6 +61,8 @@ public class FollowCamera : MonoBehaviour
         // Grab the constraint components from the camera.
         positionConstraint = GetComponent<PositionConstraint>();
         aimConstraint = GetComponent<AimConstraint>();
+
+        rb = GetComponent<Rigidbody>();
 
         DiceObject = GameObject.FindGameObjectsWithTag("Dice")[0];
 
@@ -67,7 +79,6 @@ public class FollowCamera : MonoBehaviour
     { 
         // Lock cursor to game window to make the camera feel better to use.
         Cursor.lockState = CursorLockMode.Locked;
-        verticalAim = 0;
         CreateConstraints();
         Slider.gameObject.SetActive(false);
     }
@@ -96,6 +107,38 @@ public class FollowCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Toggle Free Cam.
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (freeCamEnabled)
+            {
+                freeCamEnabled = false;
+                positionConstraint.enabled = true;
+                aimConstraint.enabled = true;
+            }
+            else
+            {
+                freeCamEnabled = true;
+                positionConstraint.enabled = false;
+                aimConstraint.enabled = false;
+            }
+        }
+
+        
+        if (freeCamEnabled)
+        {
+            float mouseX = Input.GetAxisRaw("Mouse X") * freeCamLookSensitivity;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * freeCamLookSensitivity;
+
+            yRotation += mouseX;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+
+            // If free cam is enabled, then the rest of the scripts should not run.
+            return;
+        }
+            
 
         if (Input.GetKey(KeyCode.Space) && CanTossDice)
         {
@@ -127,7 +170,29 @@ public class FollowCamera : MonoBehaviour
         verticalAim = Mathf.Clamp(verticalAim, minVerticalAim, maxVerticalAim);
 
         PrepareInformationForSwingRenderer();
-        PositionCamera();
+        PositionSwingCamera();
+    }
+
+    private void FixedUpdate()
+    {
+        // Only mess with the rigidbody when using free cam.
+        if (!freeCamEnabled)
+            return;
+
+        float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        float verticalMovement = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = transform.forward * verticalMovement + transform.right * horizontalMovement;
+        rb.AddForce(direction.normalized * freeCamMoveSpeed * 10f, ForceMode.Force);
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            rb.AddForce(Vector3.up * freeCamMoveSpeed * 10f, ForceMode.Force);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            rb.AddForce(Vector3.down * freeCamMoveSpeed * 10f, ForceMode.Force);
+        }
     }
 
     IEnumerator SetCanEvaluate()
@@ -146,7 +211,7 @@ public class FollowCamera : MonoBehaviour
         swingRenderer.UpdateRenderer(direction.normalized);
     }
 
-    private void PositionCamera()
+    private void PositionSwingCamera()
     {
         // Get the amount of rotation required for the camera.
         float rotation = Input.GetAxis("Mouse X") * cameraSensitivity;
