@@ -426,8 +426,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 519124852140902614, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 519124852140902614, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519124852140902614, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
       propertyPath: m_Interpolate
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190124804911499850, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
+      propertyPath: maxForce
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 9121368440694240283, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
       propertyPath: m_RootOrder
@@ -473,6 +485,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 85.868
       objectReference: {fileID: 0}
+    - target: {fileID: 9121368440694240294, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a1235a54b93965a499acdca1605ae4b9, type: 2}
     - target: {fileID: 9121368440694240295, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
       propertyPath: m_Name
       value: Dice

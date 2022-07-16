@@ -24,6 +24,13 @@ public class DiceSolver : MonoBehaviour
     public delegate int DiceValue(int Val);
     public event DiceValue OnDiceStop;
 
+    private DicePowers diePowers;
+
+    private void Start()
+    {
+        diePowers = GetComponent<DicePowers>();
+    }
+
     private void Update()
     {
         int Value = CheckDiceStop();
@@ -62,23 +69,42 @@ public class DiceSolver : MonoBehaviour
 
         //ray casts in all 6 directions
 
+        diePowers.ResetPowersToDefault();
         if (RayCastFromDice(transform.TransformDirection(Vector3.forward)))
+        {
+            diePowers.Face4Power();
             return Forward;
+        }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.down)))
+        {
+            diePowers.Face6Power();
             return Down;
+        }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.right)))
+        {
+            diePowers.Face5Power();
             return Right;
+        }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.left)))
+        {
+            diePowers.Face3Power();
             return Left;
+        }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.back)))
+        {
+            diePowers.Face2Power();
             return Back;
+        }
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.up)))
+        {
+            diePowers.Face1Power();
             return Up;
+        }
 
         return 0;
     }
