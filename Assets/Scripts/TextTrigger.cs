@@ -16,6 +16,10 @@ public class TextTrigger : MonoBehaviour
     private bool IsPaused = false;
     private int CurrPanel = 0;
 
+    [SerializeField]
+    private bool CanTriggerMultipleTimes = false;
+    private bool Triggered = false;
+
     private void Awake()
     {
         TextBox = GameObject.FindGameObjectsWithTag("MainText")[0];
@@ -50,8 +54,9 @@ public class TextTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other != null && other.CompareTag("Dice"))
+        if (other != null && other.CompareTag("Dice") && (!Triggered || CanTriggerMultipleTimes))
         {
+            Triggered = true;
             IsPaused = true;
             Time.timeScale = 0;
            
