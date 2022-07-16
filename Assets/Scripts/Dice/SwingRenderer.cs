@@ -14,16 +14,11 @@ public class SwingRenderer : MonoBehaviour
 
     [SerializeField]
     private float EndMaxDistance = 15f;
-    [SerializeField]
-    private float EndMinDistance = 5f;
 
     private FollowCamera MainCamera;
-
-    private GameObject Dice;
    
     void Awake()
     {
-        Dice = GameObject.FindGameObjectsWithTag("Dice")[0];
         MainCamera = Camera.main.GetComponent<FollowCamera>();
         lr = GetComponent<LineRenderer>();
         lr.positionCount = 2;

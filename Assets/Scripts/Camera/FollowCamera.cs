@@ -27,9 +27,6 @@ public class FollowCamera : MonoBehaviour
     private float SwingForce = 0f;
 
     [SerializeField]
-    private Slider Slider;
-
-    [SerializeField]
     [Tooltip("Set to true in case players can hit the dice while airborne")]
     private bool CanHitDiceInAir = false;
     private bool CanTossDice = true;
@@ -80,7 +77,6 @@ public class FollowCamera : MonoBehaviour
         // Lock cursor to game window to make the camera feel better to use.
         Cursor.lockState = CursorLockMode.Locked;
         CreateConstraints();
-        Slider.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -144,10 +140,7 @@ public class FollowCamera : MonoBehaviour
         {
             SwingForce += Charge * Time.deltaTime;
             SwingForce = Mathf.Clamp(SwingForce, 0, MaxCharge);
-            Slider.gameObject.SetActive(true);
         }
-
-        Slider.value = SwingForce / MaxCharge;
 
         //Debug.Log(SwingForce);
 
@@ -160,7 +153,6 @@ public class FollowCamera : MonoBehaviour
 
             roller.ShouldSwing(SwingForce);
             SwingForce = 0;
-            Slider.gameObject.SetActive(false);
 
             //using a couroutine otherwise the dice evaluates as it is being tossed
             StartCoroutine(SetCanEvaluate());
