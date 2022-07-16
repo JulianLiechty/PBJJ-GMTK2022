@@ -103,7 +103,7 @@ public class FollowCamera : MonoBehaviour
         float z = currentRotation.x * Mathf.Sin(angle) + currentRotation.z * Mathf.Cos(angle);
         
         // Store the new rotation value.
-        currentRotation = new Vector3(x, constraintY, z);
+        currentRotation = new Vector3(x, cameraFollowHeight, z);
 
         // Set the new constraint.
         positionConstraint.translationOffset = currentRotation;

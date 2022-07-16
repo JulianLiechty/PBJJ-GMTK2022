@@ -8,6 +8,8 @@ public class SwingRenderer : MonoBehaviour
     private Transform start;
     [SerializeField]
     private Transform end;
+    [SerializeField]
+    private Transform rotator;
     private LineRenderer lr;
 
    
@@ -26,6 +28,6 @@ public class SwingRenderer : MonoBehaviour
 
     public void UpdateRenderer(Vector3 direction)
     {
-        
+        rotator.Rotate(direction);
     }
 }
