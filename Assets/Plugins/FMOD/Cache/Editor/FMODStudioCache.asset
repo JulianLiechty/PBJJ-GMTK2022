@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7319714777138060366
+--- !u!114 &-7054164208596896077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX_PowerUp_2
+  m_Name: event:/SFX_PowerUp
   m_EditorClassIdentifier: 
-  Path: event:/SFX_PowerUp_2
+  Path: event:/SFX_PowerUp
   Guid:
     Data1: 1532602682
     Data2: 1143627706
@@ -27,6 +27,60 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-6669495315871263512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_DieRoll
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_DieRoll
+  Guid:
+    Data1: -937182076
+    Data2: 1279813687
+    Data3: -1489639539
+    Data4: -10666625
+  Banks:
+  - {fileID: -2039704962457642091}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2160
+--- !u!114 &-6232535591308873332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMB_VolcanoLavaLoop
+  m_EditorClassIdentifier: 
+  Path: event:/AMB_VolcanoLavaLoop
+  Guid:
+    Data1: -2109321960
+    Data2: 1314454644
+    Data3: 547297208
+    Data4: 748553751
+  Banks:
+  - {fileID: -2039704962457642091}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 30
+  Length: 19540
 --- !u!114 &-2039704962457642091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +96,10 @@ MonoBehaviour:
   Path: FMOD/GMTK2022/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637935030783732177
+  lastModified: 637935245624182192
   FileSizes:
   - Name: Desktop
-    Value: 78976
+    Value: 265984
   Exists: 1
 --- !u!114 &-1763507458564377850
 MonoBehaviour:
@@ -62,10 +116,10 @@ MonoBehaviour:
   Path: FMOD/GMTK2022/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637935030783742161
+  lastModified: 637935245624182192
   FileSizes:
   - Name: Desktop
-    Value: 800
+    Value: 908
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -83,16 +137,18 @@ MonoBehaviour:
   - {fileID: -1763507458564377850}
   - {fileID: -2039704962457642091}
   EditorEvents:
-  - {fileID: -7319714777138060366}
-  - {fileID: 620147237591994126}
+  - {fileID: -6232535591308873332}
+  - {fileID: -7054164208596896077}
+  - {fileID: 5833270105287052435}
+  - {fileID: -6669495315871263512}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2039704962457642091}
   StringsBanks:
   - {fileID: -1763507458564377850}
-  cacheTime: 637935030783742161
+  cacheTime: 637935245624182192
   cacheVersion: 131591
---- !u!114 &620147237591994126
+--- !u!114 &5833270105287052435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,14 +158,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX_PowerDown_2
+  m_Name: event:/SFX_PowerDown
   m_EditorClassIdentifier: 
-  Path: event:/SFX_PowerDown_2
+  Path: event:/SFX_PowerDown
   Guid:
-    Data1: 340612278
-    Data2: 1192980127
-    Data3: 92616892
-    Data4: 933953342
+    Data1: -1488572837
+    Data2: 1293830704
+    Data3: -1273886080
+    Data4: 162897204
   Banks:
   - {fileID: -2039704962457642091}
   IsStream: 0
@@ -118,4 +174,4 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 3656

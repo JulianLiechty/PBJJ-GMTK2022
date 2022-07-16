@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class FollowCamera : MonoBehaviour
 {
@@ -19,6 +20,15 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     private float maxVerticalAim;
 
+    [SerializeField]
+    private float Charge = 2f;
+    [SerializeField]
+    private float MaxCharge = 50f;
+    private float SwingForce = 0f;
+
+    [SerializeField]
+    private Slider Slider;
+
     // Dice variables.
     private GameObject DiceObject;
     private DiceRoller roller;
@@ -29,6 +39,7 @@ public class FollowCamera : MonoBehaviour
     private PositionConstraint positionConstraint;
     private AimConstraint aimConstraint;
     private float verticalAim;
+
 
     private void Awake()
     {
@@ -50,6 +61,7 @@ public class FollowCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         verticalAim = 0;
         CreateConstraints();
+        Slider.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -76,11 +88,26 @@ public class FollowCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Register Inputs
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKey(KeyCode.Space))
         {
-            roller.ShouldSwing();
+            SwingForce += Charge * Time.deltaTime;
+            SwingForce = Mathf.Clamp(SwingForce, 0, MaxCharge);
+            Slider.gameObject.SetActive(true);
         }
+
+        Slider.value = SwingForce / MaxCharge;
+
+        Debug.Log(SwingForce);
+
+        // Register Inputs
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            roller.ShouldSwing(SwingForce);
+            SwingForce = 0;
+            Slider.gameObject.SetActive(false);
+        }
+
         verticalAim += Input.GetAxis("Mouse Y") * cameraSensitivity;
         verticalAim = Mathf.Clamp(verticalAim, minVerticalAim, maxVerticalAim);
 
