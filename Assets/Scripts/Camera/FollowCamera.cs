@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FollowCamera : MonoBehaviour
 {
-    // Variables that can be changed in the editor.
+    // Swing camera settings.
     [SerializeField]
     private float cameraSensitivity;
     [SerializeField]
@@ -54,6 +54,14 @@ public class FollowCamera : MonoBehaviour
     private float xRotation = 0f;
     private Rigidbody rb;
     private bool sprinting = false;
+
+    // Gameplay Variables that shouldn't be here, but game jam.
+    [SerializeField]
+    private int numPowerupAirJumps;
+    [SerializeField]
+    [Range(1,6)]
+    private int faceValueThatAllowsAirJumps;
+    private int airJumpsUsed = 0;
 
 
     private void Awake()
@@ -156,10 +164,11 @@ public class FollowCamera : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             //only sets to false in case we don't want the dice being hit in mid air
-            if(!CanHitDiceInAir)
+            if(!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
             roller.ShouldSwing(SwingForce);
+            airJumpsUsed++;
             SwingForce = 0;
 
             //using a couroutine otherwise the dice evaluates as it is being tossed
@@ -252,8 +261,21 @@ public class FollowCamera : MonoBehaviour
     private int DiceStop(int Val)
     {
         Debug.Log(Val);
+        if (CanHitDiceInAir)
+        {
+            CanHitDiceInAir = false;
+        }
+            
+        
 
         CanTossDice = true;
+
+        if (Val == faceValueThatAllowsAirJumps)
+        {
+            CanHitDiceInAir = true;
+            airJumpsUsed = 0;
+        }
+            
 
         return 0;
     }
