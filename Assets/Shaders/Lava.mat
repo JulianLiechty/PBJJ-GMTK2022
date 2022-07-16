@@ -19,8 +19,28 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _LavaNormal:
+        m_Texture: {fileID: 2800000, guid: e995b1dcba3ee0a438e44fea5cb9cb2c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LavaTexture:
+        m_Texture: {fileID: 2800000, guid: 1650a18901aa0774aba1d051adfe02e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _FresnelPower: 1
+    - _VoroniAmmount: 0.25
+    - _VoroniAngleOffset: 0.5
+    - _VoroniSize: 5
+    m_Colors:
+    - _Color: {r: 0.9811321, g: 0.7265931, b: 0.7265931, a: 0}
+    - _FrsnelColor: {r: 0.9622642, g: 0.5140231, b: 0.2042542, a: 0}
+    - _LavaNormalSpeed: {r: -0.05, g: 0.2, b: 0, a: 0}
+    - _LavaScale: {r: 1, g: 1, b: 0, a: 0}
+    - _LavaSpeed: {r: -0.05, g: 0.1, b: 0, a: 0}
+    - _VoroniSpeed: {r: 0, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
