@@ -542,22 +542,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 519124852140902614, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 519124852140902614, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 519124852140902614, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7190124804911499850, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
-      propertyPath: maxForce
-      value: 500
-      objectReference: {fileID: 0}
     - target: {fileID: 9121368440694240283, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -602,10 +586,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 85.868
       objectReference: {fileID: 0}
-    - target: {fileID: 9121368440694240294, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: a1235a54b93965a499acdca1605ae4b9, type: 2}
     - target: {fileID: 9121368440694240295, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
       propertyPath: m_Name
       value: Dice
@@ -619,54 +599,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: Charge
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: Slider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: SwingCharge
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: maxVerticalAim
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: minVerticalAim
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: CanHitDiceInAir
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: freeCamMoveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: cameraSensitivity
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 927974259321180285, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: m_Drag
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 927974259321180285, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 927974259321180285, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: m_Constraints
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 927974259321180285, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4089825512981692436, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -714,10 +646,6 @@ PrefabInstance:
     - target: {fileID: 4089825512981692439, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089825512981692439, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
-      propertyPath: m_TagString
-      value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}

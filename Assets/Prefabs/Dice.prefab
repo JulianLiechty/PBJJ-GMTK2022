@@ -439,7 +439,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9121368440694240295}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a1235a54b93965a499acdca1605ae4b9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingDirection: {fileID: 4118415791187676126}
-  maxForce: 1000
+  maxForce: 500
   minForce: 100
 --- !u!114 &673768772150842888
 MonoBehaviour:
@@ -472,6 +472,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbf421c0078da5439b2704078b2e893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMass: 2
+  defaultFriction: 0.5
+  defaultBounciness: 0.5
+  moreMass: 4
+  moreFriction: 0.75
+  moreBounciness: 0.75
+  lessMass: 1
+  lessFriction: 0.25
+  lessBounciness: 0.25
 --- !u!114 &8493801465537936906
 MonoBehaviour:
   m_ObjectHideFlags: 0
