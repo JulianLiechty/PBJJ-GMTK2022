@@ -11,13 +11,22 @@ public class TextTrigger : MonoBehaviour
     private string[] TextPanels;
 
     private TextMeshProUGUI TextField;
+    private GameObject TextBox;
 
     private bool IsPaused = false;
     private int CurrPanel = 0;
 
+    [SerializeField]
+    private bool CanTriggerMultipleTimes = false;
+    private bool Triggered = false;
+
     private void Awake()
     {
-        TextField = GameObject.FindGameObjectsWithTag("MainText")[0].GetComponent<TextMeshProUGUI>();
+        TextBox = GameObject.FindGameObjectsWithTag("MainText")[0];
+        TextBox.SetActive(false);
+
+        TextField = TextBox.GetComponentInChildren<TextMeshProUGUI>();
+        TextField.SetText("");
 
         if (TextPanels.Length == 0)
             Debug.LogError("Assign Text Panels to this trigger");
@@ -36,6 +45,7 @@ public class TextTrigger : MonoBehaviour
             else
             {
                 TextField.SetText("");
+                TextBox.SetActive(false);
                 IsPaused = false;
                 Time.timeScale = 1;
             }
@@ -44,11 +54,14 @@ public class TextTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other != null && other.CompareTag("Dice"))
+        if (other != null && other.CompareTag("Dice") && (!Triggered || CanTriggerMultipleTimes))
         {
+            Triggered = true;
             IsPaused = true;
-            TextField.SetText(TextPanels[0]);
             Time.timeScale = 0;
+           
+            TextBox.SetActive(true);
+            TextField.SetText(TextPanels[0]);
         }
     }
 }

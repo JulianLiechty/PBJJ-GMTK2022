@@ -7,6 +7,7 @@ TagManager:
   - Dice
   - Ground
   - Slider
+  - MainText
   layers:
   - Default
   - TransparentFX

@@ -111,7 +111,6 @@ MonoBehaviour:
   end: {fileID: 2322684178668730149}
   rotator: {fileID: 4118415791187676126}
   EndMaxDistance: 15
-  EndMinDistance: 5
 --- !u!120 &8652517543594809628
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -354,6 +353,7 @@ GameObject:
   - component: {fileID: 9121368440694240293}
   - component: {fileID: 9121368440694240294}
   - component: {fileID: 7190124804911499850}
+  - component: {fileID: 673768772150842888}
   - component: {fileID: 8493801465537936906}
   - component: {fileID: 519124852140902614}
   m_Layer: 6
@@ -458,6 +458,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingDirection: {fileID: 4118415791187676126}
+  maxForce: 1000
+  minForce: 100
+--- !u!114 &673768772150842888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121368440694240295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbf421c0078da5439b2704078b2e893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8493801465537936906
 MonoBehaviour:
   m_ObjectHideFlags: 0
