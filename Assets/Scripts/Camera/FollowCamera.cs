@@ -173,7 +173,7 @@ public class FollowCamera : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             //only sets to false in case we don't want the dice being hit in mid air
-            if(!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps + 1)
+            if(!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
             if(CanHitDiceInAir && airJumpsUsed > 1)

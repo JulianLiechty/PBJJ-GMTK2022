@@ -28,7 +28,6 @@ public class DicePowers : MonoBehaviour
     public float lessFriction = 0.25f;
     public float lessBounciness = 0.25f;
 
-
     /*
      * Dice powers based on face
      */
@@ -48,8 +47,8 @@ public class DicePowers : MonoBehaviour
     }
     public void Face3Power()
     {
-        // Increase friction
-        Debug.Log("Friction Increase.");
+        // Multi hit
+        Debug.Log("MULTI HIT.");
         collider.material.dynamicFriction = moreFriction;
         collider.material.staticFriction = moreFriction;
     }
@@ -62,9 +61,10 @@ public class DicePowers : MonoBehaviour
     }
     public void Face5Power()
     {
-        // Decrease bounciness
-        Debug.Log("Bounciness Decrease.");
-        collider.material.bounciness = lessBounciness;
+        // Low Gravity
+        Debug.Log("Low Gravity.");
+        Physics.gravity = new Vector3(0, -2.0f, 0);
+        //rigidBody.useGravity = false;
     }
     public void Face6Power()
     {
@@ -79,6 +79,7 @@ public class DicePowers : MonoBehaviour
         collider.material.bounciness = defaultBounciness;
         collider.material.dynamicFriction = defaultFriction;
         collider.material.staticFriction = defaultFriction;
+        Physics.gravity = new Vector3(0, -9.81f, 0);
     }
 
     /*
