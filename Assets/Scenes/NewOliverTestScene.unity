@@ -2616,6 +2616,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: sprintMultiplier
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
       propertyPath: cameraSensitivity
       value: 0.02
       objectReference: {fileID: 0}
@@ -2624,8 +2628,16 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: numPowerupAirJumps
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
       propertyPath: cameraFollowDistance
       value: -9.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: airJumpForceMultiplier
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 927974259321180285, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
       propertyPath: m_Drag
