@@ -29,6 +29,11 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     private Slider Slider;
 
+    [SerializeField]
+    [Tooltip("Set to true in case players can hit the dice while airborne")]
+    private bool CanHitDiceInAir = false;
+    private bool CanTossDice = true;
+
     // Dice variables.
     private GameObject DiceObject;
     private DiceRoller roller;
@@ -52,6 +57,9 @@ public class FollowCamera : MonoBehaviour
         // roller and swing renderer so that camera can push, and rotate the swing UI.
         swingRenderer = DiceObject.GetComponentInChildren<SwingRenderer>();
         roller = DiceObject.GetComponent<DiceRoller>();
+
+        //Binds the stop event on the dice to a function in this script
+        DiceObject.GetComponent<DiceSolver>().OnDiceStop += DiceStop;
     }
 
     // Start is called before the first frame update
@@ -89,7 +97,7 @@ public class FollowCamera : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && CanTossDice)
         {
             SwingForce += Charge * Time.deltaTime;
             SwingForce = Mathf.Clamp(SwingForce, 0, MaxCharge);
@@ -98,14 +106,21 @@ public class FollowCamera : MonoBehaviour
 
         Slider.value = SwingForce / MaxCharge;
 
-        Debug.Log(SwingForce);
+        //Debug.Log(SwingForce);
 
         // Register Inputs
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            //only sets to false in case we don't want the dice being hit in mid air
+            if(!CanHitDiceInAir)
+                CanTossDice = false;
+
             roller.ShouldSwing(SwingForce);
             SwingForce = 0;
             Slider.gameObject.SetActive(false);
+
+            //using a couroutine otherwise the dice evaluates as it is being tossed
+            StartCoroutine(SetCanEvaluate());
         }
 
         verticalAim += Input.GetAxis("Mouse Y") * cameraSensitivity;
@@ -113,6 +128,15 @@ public class FollowCamera : MonoBehaviour
 
         PrepareInformationForSwingRenderer();
         PositionCamera();
+    }
+
+    IEnumerator SetCanEvaluate()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        DiceObject.GetComponent<DiceSolver>().CanEvaluate = true;
+
+        Debug.Log("ready");
     }
 
     private void PrepareInformationForSwingRenderer()
@@ -147,5 +171,19 @@ public class FollowCamera : MonoBehaviour
         // Set the new constraint.
         positionConstraint.translationOffset = currentRotation;
         transform.position = DiceObject.transform.position + currentRotation;
+    }
+
+    /// <summary>
+    /// Method bound to Dice Stop Event on the Dice
+    /// </summary>
+    /// <param name="Val"></param>
+    /// <returns></returns>
+    private int DiceStop(int Val)
+    {
+        Debug.Log(Val);
+
+        CanTossDice = true;
+
+        return 0;
     }
 }

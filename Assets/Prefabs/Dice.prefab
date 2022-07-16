@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 9121368440694240293}
   - component: {fileID: 9121368440694240294}
   - component: {fileID: 7190124804911499850}
+  - component: {fileID: 8493801465537936906}
   - component: {fileID: 519124852140902614}
   m_Layer: 0
   m_Name: Dice
@@ -357,7 +358,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingDirection: {fileID: 4118415791187676126}
-  Force: 10
+--- !u!114 &8493801465537936906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121368440694240295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231f2e63cfb3aab4b87eb77d6b0e9dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Forward: 4
+  Down: 6
+  Right: 5
+  Left: 3
+  Back: 2
+  Up: 1
 --- !u!54 &519124852140902614
 Rigidbody:
   m_ObjectHideFlags: 0

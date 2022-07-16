@@ -4,22 +4,41 @@ using UnityEngine;
 
 public class DiceSolver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Becareful with these values \nDon't change unless necessary")]
 
-    // Update is called once per frame
-    void Update()
-    {
+    [SerializeField]
+    private int Forward = 1;
+    [SerializeField]
+    private int Down = 2;
+    [SerializeField]
+    private int Right = 3;
+    [SerializeField]
+    private int Left = 4;
+    [SerializeField]
+    private int Back = 5;
+    [SerializeField]
+    private int Up = 6;
 
+    private bool ShouldEvaluate = false;
+
+    public delegate int DiceValue(int Val);
+    public event DiceValue OnDiceStop;
+
+    private void Update()
+    {
+        int Value = CheckDiceStop();
+
+        if(Value != 0 && ShouldEvaluate)
+        {
+            OnDiceStop(Value);
+            ShouldEvaluate = false;
+        }
     }
 
     /// <summary>
     /// Gets the value of the dice once it has stop moving
     /// </summary>
-    private int OnDiceStop()
+    public int CheckDiceStop()
     {
         float VelocityThreshold = 0.1f;
 
@@ -31,7 +50,7 @@ public class DiceSolver : MonoBehaviour
         return 0;
     }
 
-    private int GetUpSide()
+    public int GetUpSide()
     {
         //Debug code if needed
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
@@ -44,22 +63,22 @@ public class DiceSolver : MonoBehaviour
         //ray casts in all 6 directions
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.forward)))
-            return 1;
+            return Forward;
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.down)))
-            return 2;
+            return Down;
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.right)))
-            return 3;
+            return Right;
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.left)))
-            return 4;
+            return Left;
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.back)))
-            return 5;
+            return Back;
 
         if (RayCastFromDice(transform.TransformDirection(Vector3.up)))
-            return 6;
+            return Up;
 
         return 0;
     }
@@ -80,5 +99,18 @@ public class DiceSolver : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool CanEvaluate
+    {
+        get
+        {
+            return ShouldEvaluate;
+        }
+
+        set
+        {
+            ShouldEvaluate = value;
+        }
     }
 }
