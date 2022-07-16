@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Slider
   - MainText
+  - SideText
   layers:
   - Default
   - TransparentFX
