@@ -14,14 +14,21 @@ public class FollowCamera : MonoBehaviour
     private float cameraFollowHeight;
     [SerializeField]
     private float radius;
+    [SerializeField]
+    private float minVerticalAim;
+    [SerializeField]
+    private float maxVerticalAim;
 
-    private DiceRoller roller;
+    // Dice variables.
     private GameObject DiceObject;
+    private DiceRoller roller;
+    private SwingRenderer swingRenderer;
+    
+    // Camera variables.
     private Vector3 currentRotation;
     private PositionConstraint positionConstraint;
     private AimConstraint aimConstraint;
-    private float constraintY;
-    private SwingRenderer swingRenderer;
+    private float verticalAim;
 
     private void Awake()
     {
@@ -41,7 +48,7 @@ public class FollowCamera : MonoBehaviour
     { 
         // Lock cursor to game window to make the camera feel better to use.
         Cursor.lockState = CursorLockMode.Locked;
-
+        verticalAim = 0;
         CreateConstraints();
     }
 
@@ -74,6 +81,8 @@ public class FollowCamera : MonoBehaviour
         {
             roller.ShouldSwing();
         }
+        verticalAim += Input.GetAxis("Mouse Y") * cameraSensitivity;
+        verticalAim = Mathf.Clamp(verticalAim, minVerticalAim, maxVerticalAim);
 
         PrepareInformationForSwingRenderer();
         PositionCamera();
@@ -82,7 +91,7 @@ public class FollowCamera : MonoBehaviour
     private void PrepareInformationForSwingRenderer()
     {
         Vector3 direction = transform.position - DiceObject.transform.position;
-        direction.y = 0;
+        direction.y = verticalAim;
         swingRenderer.UpdateRenderer(direction.normalized);
     }
 

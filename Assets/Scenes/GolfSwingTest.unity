@@ -382,6 +382,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: maxVerticalAim
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: minVerticalAim
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 4089825512981692436, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
       propertyPath: m_RootOrder
       value: 2
