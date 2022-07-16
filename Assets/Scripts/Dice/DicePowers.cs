@@ -18,15 +18,15 @@ public class DicePowers : MonoBehaviour
 
     private Rigidbody rigidBody;
     private BoxCollider collider;
-    private float defaultMass = 2f;
-    private float defaultFriction = 0.5f;
-    private float defaultBounciness = 0.5f;
-    private float moreMass = 4f;
-    private float moreFriction = 0.75f;
-    private float moreBounciness = 0.75f;
-    private float lessMass = 1f;
-    private float lessFriction = 0.25f;
-    private float lessBounciness = 0.25f;
+    public float defaultMass = 2f;
+    public float defaultFriction = 0.5f;
+    public float defaultBounciness = 0.5f;
+    public float moreMass = 4f;
+    public float moreFriction = 0.75f;
+    public float moreBounciness = 0.75f;
+    public float lessMass = 1f;
+    public float lessFriction = 0.25f;
+    public float lessBounciness = 0.25f;
 
 
     /*
@@ -42,6 +42,8 @@ public class DicePowers : MonoBehaviour
     {
         // Increase bounciness
         Debug.Log("Bounciness Increase.");
+        collider.material.dynamicFriction = lessFriction;
+        collider.material.dynamicFriction = lessFriction;
         collider.material.bounciness = moreBounciness;
     }
     public void Face3Power()
@@ -136,6 +138,7 @@ public class DicePowers : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         collider = GetComponent<BoxCollider>();
+        ResetPowersToDefault();
     }
 
     // Update is called once per frame
