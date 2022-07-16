@@ -23,4 +23,9 @@ public class SwingRenderer : MonoBehaviour
         lr.SetPosition(0, start.position);
         lr.SetPosition(1, end.position);
     }
+
+    public void UpdateRenderer(Vector3 direction)
+    {
+
+    }
 }
