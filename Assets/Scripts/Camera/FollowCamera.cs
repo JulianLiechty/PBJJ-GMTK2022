@@ -36,6 +36,8 @@ public class FollowCamera : MonoBehaviour
     private float freeCamMoveSpeed;
     [SerializeField]
     private float freeCamLookSensitivity;
+    [SerializeField]
+    private float sprintMultiplier;
 
     // Dice variables.
     private GameObject DiceObject;
@@ -51,6 +53,7 @@ public class FollowCamera : MonoBehaviour
     private float yRotation = 0f;
     private float xRotation = 0f;
     private Rigidbody rb;
+    private bool sprinting = false;
 
 
     private void Awake()
@@ -123,6 +126,11 @@ public class FollowCamera : MonoBehaviour
         
         if (freeCamEnabled)
         {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+                sprinting = true;
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+                sprinting = false;
+
             float mouseX = Input.GetAxisRaw("Mouse X") * freeCamLookSensitivity;
             float mouseY = Input.GetAxisRaw("Mouse Y") * freeCamLookSensitivity;
 
@@ -174,16 +182,22 @@ public class FollowCamera : MonoBehaviour
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
         float verticalMovement = Input.GetAxisRaw("Vertical");
 
+        float movementSpeed;
+        if (sprinting)
+            movementSpeed = freeCamMoveSpeed * 10f * sprintMultiplier;
+        else
+            movementSpeed = freeCamMoveSpeed * 10f;
+
         Vector3 direction = transform.forward * verticalMovement + transform.right * horizontalMovement;
-        rb.AddForce(direction.normalized * freeCamMoveSpeed * 10f, ForceMode.Force);
+        rb.AddForce(direction.normalized * movementSpeed , ForceMode.Force);
 
         if (Input.GetKey(KeyCode.E))
         {
-            rb.AddForce(Vector3.up * freeCamMoveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(Vector3.up * movementSpeed, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            rb.AddForce(Vector3.down * freeCamMoveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(Vector3.down * movementSpeed, ForceMode.Force);
         }
     }
 
