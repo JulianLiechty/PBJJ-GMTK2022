@@ -110,10 +110,12 @@ MonoBehaviour:
   maxVerticalAim: 1
   Charge: 10
   MaxCharge: 50
-  Slider: {fileID: 0}
   CanHitDiceInAir: 0
   freeCamMoveSpeed: 0.03
   freeCamLookSensitivity: 3
+  sprintMultiplier: 2
+  numPowerupAirJumps: 2
+  faceValueThatAllowsAirJumps: 3
 --- !u!1818360608 &2196284955159375284
 PositionConstraint:
   m_ObjectHideFlags: 0
