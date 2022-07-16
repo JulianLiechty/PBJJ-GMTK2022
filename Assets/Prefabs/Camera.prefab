@@ -100,12 +100,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f0fe0f462508c4f87174ec77c11a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSensitivity: 0.2
+  cameraSensitivity: 0.01
   cameraFollowDistance: -6.5
   cameraFollowHeight: 3.78
   radius: 5.03
   minVerticalAim: -6
   maxVerticalAim: 1
+  Charge: 10
+  MaxCharge: 50
+  Slider: {fileID: 0}
+  CanHitDiceInAir: 0
+  freeCamMoveSpeed: 0.03
+  freeCamLookSensitivity: 3
 --- !u!1818360608 &2196284955159375284
 PositionConstraint:
   m_ObjectHideFlags: 0
