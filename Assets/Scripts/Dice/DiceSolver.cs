@@ -69,8 +69,6 @@ public class DiceSolver : MonoBehaviour
         //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 1000, Color.red);
 
         //ray casts in all 6 directions
-
-        diePowers.ResetPowersToDefault();
         if (RayCastFromDice(transform.TransformDirection(Vector3.forward)))
         {
             return Forward;
