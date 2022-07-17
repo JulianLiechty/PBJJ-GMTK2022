@@ -43,7 +43,7 @@ public class FollowCamera : MonoBehaviour
     private GameObject DiceObject;
     private DiceRoller roller;
     private SwingRenderer swingRenderer;
-    
+
     // Camera variables.
     private Vector3 currentRotation;
     private PositionConstraint positionConstraint;
@@ -59,7 +59,7 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     private int numPowerupAirJumps;
     [SerializeField]
-    [Range(1,6)]
+    [Range(1, 6)]
     private int faceValueThatAllowsAirJumps;
     private int airJumpsUsed = 0;
     [SerializeField]
@@ -101,7 +101,7 @@ public class FollowCamera : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         // Lock cursor to game window to make the camera feel better to use.
         Cursor.lockState = CursorLockMode.Locked;
         CreateConstraints();
@@ -152,7 +152,7 @@ public class FollowCamera : MonoBehaviour
             }
         }
 
-        
+
         if (freeCamEnabled)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -171,18 +171,20 @@ public class FollowCamera : MonoBehaviour
             // If free cam is enabled, then the rest of the scripts should not run.
             return;
         }
-            
+
 
         if (Input.GetKey(KeyCode.Space) && CanTossDice)
         {
+            charging = true;
             SwingForce += Charge * Time.deltaTime;
 
             //makes the charge ping pong between max and min value
-            if(SwingForce > MaxCharge || SwingForce < 0)
+            if (SwingForce > MaxCharge || SwingForce < 0)
                 Charge = -Charge;
 
             SwingForce = Mathf.Clamp(SwingForce, 0, MaxCharge);
-            SwingForcePercentage(SwingForce/MaxCharge);
+            if(SwingForcePercentage is not null)
+                SwingForcePercentage(SwingForce / MaxCharge);
         }
 
         //Debug.Log(SwingForce);
@@ -191,15 +193,16 @@ public class FollowCamera : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && CanTossDice)
         {
             //only sets to false in case we don't want the dice being hit in mid air
-            if(!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
+            if (!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
-            if(CanTossDice && CanHitDiceInAir && airJumpsUsed > 1)
+            if (CanTossDice && CanHitDiceInAir && airJumpsUsed > 1)
                 roller.ShouldSwing(SwingForce * airJumpForceMultiplier);
             else
                 roller.ShouldSwing(SwingForce);
-                
-            DiceLaunchedEvent();
+
+            if(DiceLaunchedEvent is not null)
+                DiceLaunchedEvent();
             airJumpsUsed++;
             SwingForce = 0;
 
@@ -230,7 +233,7 @@ public class FollowCamera : MonoBehaviour
             movementSpeed = freeCamMoveSpeed * 10f;
 
         Vector3 direction = transform.forward * verticalMovement + transform.right * horizontalMovement;
-        rb.AddForce(direction.normalized * movementSpeed , ForceMode.Force);
+        rb.AddForce(direction.normalized * movementSpeed, ForceMode.Force);
 
         if (Input.GetKey(KeyCode.E))
         {
@@ -262,6 +265,12 @@ public class FollowCamera : MonoBehaviour
     {
         // Get the amount of rotation required for the camera.
         float rotation = Input.GetAxis("Mouse X") * cameraSensitivity;
+       
+        // If the swing is charging, and there is some form of rotation.
+        if (charging && rotation != 0)
+            if(AimChangedEvent is not null)
+                AimChangedEvent();
+
         // Rotate the constraints to create the rotation effect.
         RotateConstraint(rotation);
     }
@@ -271,12 +280,12 @@ public class FollowCamera : MonoBehaviour
     /// </summary>
     /// <param name="angle">How much to turn.</param>
     public void RotateConstraint(float angle)
-    {   
+    {
         // Rotate the vector representing the rotation of the camera.
         // I pretended the rotation was a 2d vector and rotated that.
         float x = currentRotation.x * Mathf.Cos(angle) - currentRotation.z * Mathf.Sin(angle);
         float z = currentRotation.x * Mathf.Sin(angle) + currentRotation.z * Mathf.Cos(angle);
-        
+
         // Store the new rotation value.
         currentRotation = new Vector3(x, cameraFollowHeight, z);
 
