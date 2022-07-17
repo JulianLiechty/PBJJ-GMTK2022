@@ -91,7 +91,6 @@ public class DiceRoller : MonoBehaviour
         if (instanceStarted)
             return;
 
-        Debug.Log("WOWZA");
         instanceStarted = true;
         instance = FMODUnity.RuntimeManager.CreateInstance("Event:/UI/UI_PowerMeter");
         instance.start();
