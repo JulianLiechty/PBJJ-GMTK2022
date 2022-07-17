@@ -16,55 +16,143 @@ public class DicePowers : MonoBehaviour
         Fire
     }
 
+    private Rigidbody rigidBody;
+    private BoxCollider collider;
+    public float defaultMass = 2f;
+    public float defaultFriction = 0.5f;
+    public float defaultBounciness = 0.5f;
+    public float defaultGravityScale = 1f;
+    public float moreMass = 4f;
+    public float moreFriction = 0.75f;
+    public float moreBounciness = 0.75f;
+    public float moreGravity = 2f;
+    public float lessMass = 1f;
+    public float lessFriction = 0.25f;
+    public float lessBounciness = 0.25f;
+    public float lessGravity = 0.5f;
+
+    private float gravityScale;
+
+    /*
+     * Dice powers based on face
+     */
+    public void Face1Power()
+    {
+        // Increase mass
+        Debug.Log("Mass Increase.");
+        rigidBody.mass = moreMass;
+    }
+    public void Face2Power()
+    {
+        // Increase bounciness
+        Debug.Log("Bounciness Increase.");
+        collider.material.bounciness = moreBounciness;
+    }
+    public void Face3Power()
+    {
+        // Multi hit
+        Debug.Log("MULTI HIT.");
+        //collider.material.dynamicFriction = moreFriction;
+        //collider.material.staticFriction = moreFriction;
+    }
+    public void Face4Power()
+    {
+        // Decrease friction
+        Debug.Log("Friction Decrease.");
+        collider.material.dynamicFriction = lessFriction;
+        collider.material.staticFriction = lessFriction;
+    }
+    public void Face5Power()
+    {
+        // Low Gravity
+        Debug.Log("Low Gravity.");
+        gravityScale = lessGravity;
+    }
+    public void Face6Power()
+    {
+        // Decrease mass
+        Debug.Log("Mass Decrease.");
+        rigidBody.mass = lessMass;
+    }
+
+    public void ResetPowersToDefault()
+    {
+        rigidBody.mass = defaultMass;
+        gravityScale = defaultGravityScale;
+        collider.material.bounciness = defaultBounciness;
+        collider.material.dynamicFriction = defaultFriction;
+        collider.material.staticFriction = defaultFriction;
+        Physics.gravity = new Vector3(0, -9.81f, 0);
+    }
+
     /*
      * Dice powers will have a chance to increase or decrease based on dice roll
      */
 
     // Increae or decrease friction
-    public void DieFace_Friction()
+    public bool DieFace_Friction()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease bounciness
-    public void DieFace_Bounciness()
+    public bool DieFace_Bounciness()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease mass
-    public void DieFace_Mass()
+    public bool DieFace_Mass()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease mass
-    public void DieFace_Drag()
+    public bool DieFace_Drag()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Increase or decrease power meter speed
-    public void DieFace_PowerMeterSpeed()
+    public bool DieFace_PowerMeterSpeed()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Be on fire and invincible, or be on fire and burn away
-    public void DieFace_OnFire()
+    public bool DieFace_OnFire()
     {
+        int randomFlip = Random.Range(0, 2);
         // Use random bit flip
+        return randomFlip % 2 == 1;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody>();
+        collider = GetComponent<BoxCollider>();
+        ResetPowersToDefault();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        rigidBody.AddForce(Physics.gravity * gravityScale);
     }
 }

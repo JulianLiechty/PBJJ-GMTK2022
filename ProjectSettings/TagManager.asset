@@ -6,16 +6,19 @@ TagManager:
   tags:
   - Dice
   - Ground
+  - Slider
+  - MainText
+  - SideText
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Camera
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Dice
+  - Face
+  - Hitable Stuff
   - 
   - 
   - 
