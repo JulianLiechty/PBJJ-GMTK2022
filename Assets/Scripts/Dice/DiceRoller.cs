@@ -9,6 +9,8 @@ public class DiceRoller : MonoBehaviour
 
     [SerializeField]
     private Transform swingDirection;
+    [SerializeField]
+    private GameObject dice;
 
     [SerializeField] private float maxForce = 1000f;
     [SerializeField] private float minForce = 100f;
@@ -36,6 +38,8 @@ public class DiceRoller : MonoBehaviour
         Force = SwingForce;
     }
 
+
+
     private void Swing()
     {
         float Max = maxForce;
@@ -44,5 +48,16 @@ public class DiceRoller : MonoBehaviour
         // IDK why it has to be swingDirection.right, but it does.
         rb.AddForce(swingDirection.right * Force, ForceMode.Impulse);
         rb.AddTorque(new Vector3(UnityEngine.Random.Range(Min, Max), UnityEngine.Random.Range(Min, Max), UnityEngine.Random.Range(Min, Max)));
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_DieRoll", dice);
+    }
+
+    public void AimChanged()
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/UI/UI_AimTick", dice);
+    }
+
+    public void SwingStrengthChanged()
+    {
+        // FMODUnity.RuntimeManager.PlayOneShotAttached("event:/UI/UI_PowerMeter", dice);
     }
 }

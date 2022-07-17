@@ -18,10 +18,29 @@ public class HitDetection : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Hitable Stuff"))
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/UI/UI_AimTick", dice);
+            //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideGround", dice);
             DiceHitEvent();
         }
+
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Rock"))
+        {
+            //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideRock", dice);
+            DiceHitEvent();
+        }
+
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Bush"))
+        {
+            //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideBush", dice);
+            DiceHitEvent();
+        }
+
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Wood"))
+        {
+            //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideWood", dice);
+            DiceHitEvent();
+        }
+
     }
 }

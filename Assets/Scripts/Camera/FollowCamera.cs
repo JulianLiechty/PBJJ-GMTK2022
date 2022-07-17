@@ -72,6 +72,7 @@ public class FollowCamera : MonoBehaviour
 
     [SerializeField]
     private float EvaluationInterval = 2f;
+    private bool charging;
 
     // Event announcing the current value of the swing intensity.
     public delegate void SwingIntensity(float Val);
@@ -80,11 +81,6 @@ public class FollowCamera : MonoBehaviour
     // Dice Launched
     public delegate void DiceLaunched();
     public event DiceLaunched DiceLaunchedEvent;
-
-    // Aim changed while charging swing.
-    public delegate void AimChanged();
-    public event AimChanged AimChangedEvent;
-    private bool charging = false;
 
     private void Awake()
     {
@@ -190,6 +186,8 @@ public class FollowCamera : MonoBehaviour
             SwingForce = Mathf.Clamp(SwingForce, 0, MaxCharge);
             if(SwingForcePercentage is not null)
                 SwingForcePercentage(SwingForce / MaxCharge);
+
+            roller.SwingStrengthChanged();
         }
 
         //Debug.Log(SwingForce);
@@ -273,8 +271,7 @@ public class FollowCamera : MonoBehaviour
 
         // If the swing is charging, and there is some form of rotation.
         if (charging && hRotation != 0)
-            if(AimChangedEvent is not null)
-                AimChangedEvent();
+            roller.AimChanged();
 
         // Rotate the constraints to create the horizontal orbital rotation effect.
         RotateConstraint(hRotation, vRotation);

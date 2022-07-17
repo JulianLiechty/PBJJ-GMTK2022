@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingDirection: {fileID: 4118415791187676126}
+  dice: {fileID: 9121368440694240295}
   maxForce: 500
   minForce: 100
 --- !u!114 &673768772150842888
