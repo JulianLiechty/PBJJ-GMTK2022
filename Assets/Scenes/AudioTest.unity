@@ -1858,6 +1858,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7190124804911499850, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
+      propertyPath: AimTickNoiseFrequencyInSeconds
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9121368440694240283, guid: c726b1c4e7a3bed44a4093bfb3230e74, type: 3}
       propertyPath: m_RootOrder
       value: 3

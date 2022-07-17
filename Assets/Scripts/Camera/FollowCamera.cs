@@ -82,6 +82,9 @@ public class FollowCamera : MonoBehaviour
     public delegate void DiceLaunched();
     public event DiceLaunched DiceLaunchedEvent;
 
+    // Dice Launched
+    public event DiceLaunched DiceLaunchedInAirEvent;
+
     private void Awake()
     {
         // Grab the constraint components from the camera.
@@ -195,12 +198,17 @@ public class FollowCamera : MonoBehaviour
         // Register Inputs
         if (Input.GetKeyUp(KeyCode.Space) && CanTossDice)
         {
+            charging = false;
             //only sets to false in case we don't want the dice being hit in mid air
             if (!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
             if (CanTossDice && CanHitDiceInAir && airJumpsUsed > 1)
+            {
                 roller.ShouldSwing(SwingForce * airJumpForceMultiplier);
+                if (DiceLaunchedInAirEvent is not null)
+                    DiceLaunchedInAirEvent();
+            }
             else
                 roller.ShouldSwing(SwingForce);
 

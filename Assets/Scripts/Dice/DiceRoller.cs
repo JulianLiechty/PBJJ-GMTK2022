@@ -15,12 +15,18 @@ public class DiceRoller : MonoBehaviour
     [SerializeField] private float maxForce = 1000f;
     [SerializeField] private float minForce = 100f;
 
+    [SerializeField]
+    private float AimTickNoiseFrequencyInSeconds;
+    private float timeSinceLastNoiseTick;
+    private bool canTick = true;
+
     private float Force;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        timeSinceLastNoiseTick = AimTickNoiseFrequencyInSeconds;
     }
     
     private void FixedUpdate()
@@ -38,7 +44,19 @@ public class DiceRoller : MonoBehaviour
         Force = SwingForce;
     }
 
+    private void Update()
+    {
+        if (!canTick)
+        {
+            timeSinceLastNoiseTick -= Time.deltaTime;
 
+            if (timeSinceLastNoiseTick <= 0)
+            {
+                timeSinceLastNoiseTick = AimTickNoiseFrequencyInSeconds;
+                canTick = true;
+            }
+        }
+    }
 
     private void Swing()
     {
@@ -53,7 +71,12 @@ public class DiceRoller : MonoBehaviour
 
     public void AimChanged()
     {
-        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/UI/UI_AimTick", dice);
+        if (canTick)
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/UI/UI_AimTick", dice);
+            canTick = false;
+        }
+            
     }
 
     public void SwingStrengthChanged()
