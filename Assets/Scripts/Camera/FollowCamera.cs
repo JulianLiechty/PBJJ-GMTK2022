@@ -203,7 +203,7 @@ public class FollowCamera : MonoBehaviour
             if (!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
-            if (CanTossDice && CanHitDiceInAir && airJumpsUsed > 1)
+            if (CanTossDice && CanHitDiceInAir && airJumpsUsed > 0)
             {
                 roller.ShouldSwing(SwingForce * airJumpForceMultiplier);
                 if (DiceLaunchedInAirEvent != null)
