@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
+    float freeCamSens = 0.5f;
+    float swingCamSens = 0.5f;
 
     void Start()
     {
@@ -41,6 +43,16 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void FreeCamSens(float val)
+    {
+        freeCamSens = val;
+    }
+
+    public void SwingCamSens(float val)
+    {
+        swingCamSens = val;
     }
 
 }
