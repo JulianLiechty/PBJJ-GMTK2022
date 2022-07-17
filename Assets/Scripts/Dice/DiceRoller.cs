@@ -11,6 +11,8 @@ public class DiceRoller : MonoBehaviour
     private Transform swingDirection;
     [SerializeField]
     private GameObject dice;
+    private FMOD.Studio.EventInstance instance;
+    private bool instanceStarted = false;
 
     [SerializeField] private float maxForce = 1000f;
     [SerializeField] private float minForce = 100f;
@@ -67,6 +69,11 @@ public class DiceRoller : MonoBehaviour
         rb.AddForce(swingDirection.right * Force, ForceMode.Impulse);
         rb.AddTorque(new Vector3(UnityEngine.Random.Range(Min, Max), UnityEngine.Random.Range(Min, Max), UnityEngine.Random.Range(Min, Max)));
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_DieRoll", dice);
+
+        // Stop the audio from playing.
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance.release();
+        instanceStarted = false;
     }
 
     public void AimChanged()
@@ -81,6 +88,12 @@ public class DiceRoller : MonoBehaviour
 
     public void SwingStrengthChanged()
     {
-        // FMODUnity.RuntimeManager.PlayOneShotAttached("event:/UI/UI_PowerMeter", dice);
+        if (instanceStarted)
+            return;
+
+        Debug.Log("WOWZA");
+        instanceStarted = true;
+        instance = FMODUnity.RuntimeManager.CreateInstance("Event:/UI/UI_PowerMeter");
+        instance.start();
     }
 }

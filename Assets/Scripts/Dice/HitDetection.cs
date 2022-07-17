@@ -26,7 +26,7 @@ public class HitDetection : MonoBehaviour
 
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Rock"))
         {
-            //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideRock", dice);
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideRock", dice);
             DiceHitEvent();
         }
 
@@ -38,7 +38,7 @@ public class HitDetection : MonoBehaviour
 
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Wood"))
         {
-            //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideWood", dice);
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideWood", dice);
             DiceHitEvent();
         }
 
