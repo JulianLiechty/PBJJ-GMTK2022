@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7375440459629881602}
   - component: {fileID: 7375440459629881601}
   - component: {fileID: 7375440459629881600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Toppleable
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -483,16 +483,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbf421c0078da5439b2704078b2e893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMass: 1
+  defaultMass: 0.5
   defaultFriction: 0.75
   defaultBounciness: 0.125
   defaultGravityScale: 1
-  moreMass: 2
+  moreMass: 1.75
   moreFriction: 5
   moreBounciness: 1
   moreGravity: 2
   lessMass: 0.5
-  lessFriction: 0.2
+  lessFriction: 0.1
   lessBounciness: 0.1
   lessGravity: 0.3
 --- !u!114 &8493801465537936906
