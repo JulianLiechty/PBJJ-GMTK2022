@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1818655864060930603
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bush
+  m_Name: TreeShort
   m_Shader: {fileID: -6465566751694194690, guid: 6448dbb0fd613462ea78c77aee214ca5, type: 3}
   m_ValidKeywords:
   - _ALPHATEST_ON
@@ -55,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 1
-    - _BillboardSize: 0.164
+    - _BillboardSize: 0.922
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 0
@@ -72,7 +59,20 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 1
     m_Colors:
-    - _Accent_Color: {r: 0.4961415, g: 0.9056604, b: 0.1409754, a: 0}
-    - _FresnelColor: {r: 0.06452475, g: 0.4716981, b: 0.3296453, a: 0}
-    - _MainColor: {r: 0.2590039, g: 0.745283, b: 0.2566305, a: 0}
+    - _Accent_Color: {r: 0.8301887, g: 0.45591995, b: 0.17621933, a: 0}
+    - _FresnelColor: {r: 0.6117647, g: 0.33104625, b: 0.10588236, a: 0}
+    - _MainColor: {r: 0.8490566, g: 0.7329708, b: 0.108134575, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &8457558965068780564
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

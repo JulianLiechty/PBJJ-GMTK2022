@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TreeTest
+  m_Name: TreeTall
   m_Shader: {fileID: -6465566751694194690, guid: 6448dbb0fd613462ea78c77aee214ca5, type: 3}
   m_ValidKeywords:
   - _ALPHATEST_ON
@@ -55,12 +55,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 1
-    - _BillboardSize: 0.896
+    - _BillboardSize: 0.636
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
-    - _Inflate: 0.39
+    - _Inflate: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
