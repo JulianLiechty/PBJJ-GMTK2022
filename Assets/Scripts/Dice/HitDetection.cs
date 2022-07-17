@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject dice;
     private BoxCollider diceCollider;
 
     public delegate void DiceHit();
@@ -18,6 +20,7 @@ public class HitDetection : MonoBehaviour
     {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Hitable Stuff"))
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/UI/UI_AimTick", dice);
             DiceHitEvent();
         }
     }
