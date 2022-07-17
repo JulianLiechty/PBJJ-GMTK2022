@@ -722,6 +722,22 @@ PrefabInstance:
       propertyPath: EvaluationInterval
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: maxVerticalAimCamera
+      value: 9.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: minVerticalAimCamera
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: maxVerticalAimIndicator
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 366035362412604539, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
+      propertyPath: minVerticalAimIndicator
+      value: -8.26
+      objectReference: {fileID: 0}
     - target: {fileID: 4089825512981692436, guid: 49b23b782c8adda4ebdc757e484d4ae4, type: 3}
       propertyPath: m_RootOrder
       value: 2
