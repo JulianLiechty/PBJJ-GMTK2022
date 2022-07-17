@@ -484,12 +484,15 @@ MonoBehaviour:
   defaultMass: 2
   defaultFriction: 0.5
   defaultBounciness: 0.5
+  defaultGravityScale: 1
   moreMass: 4
   moreFriction: 0.75
   moreBounciness: 0.75
+  moreGravity: 2
   lessMass: 1
   lessFriction: 0.25
   lessBounciness: 0.25
+  lessGravity: 0.5
 --- !u!114 &8493801465537936906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,8 +668,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a0004f55556842f4982f4565c085f88, type: 3}
+--- !u!95 &1824252336567439851 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8305410544977598359, guid: 5a0004f55556842f4982f4565c085f88, type: 3}
+  m_PrefabInstance: {fileID: 7643652241662609020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1916037537580580207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8107768826242202387, guid: 5a0004f55556842f4982f4565c085f88, type: 3}
   m_PrefabInstance: {fileID: 7643652241662609020}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7395209430500635200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 914999269603210300, guid: 5a0004f55556842f4982f4565c085f88, type: 3}
+  m_PrefabInstance: {fileID: 7643652241662609020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7169385626209038688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395209430500635200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b18a30754a4a642b880a923e6fa264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1824252336567439851}

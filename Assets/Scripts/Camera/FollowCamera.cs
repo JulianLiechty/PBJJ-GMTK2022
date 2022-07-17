@@ -68,6 +68,10 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     private float EvaluationInterval = 2f;
 
+    // Event announcing the current value of the swing intensity.
+    public delegate void SwingIntensity(float Val);
+    public event SwingIntensity SwingForcePercentage;
+
     private void Awake()
     {
         // Grab the constraint components from the camera.
@@ -169,6 +173,7 @@ public class FollowCamera : MonoBehaviour
                 Charge = -Charge;
 
             SwingForce = Mathf.Clamp(SwingForce, 0, MaxCharge);
+            SwingForcePercentage(SwingForce/MaxCharge);
         }
 
         //Debug.Log(SwingForce);
