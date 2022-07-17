@@ -113,7 +113,7 @@ MonoBehaviour:
   CanHitDiceInAir: 0
   freeCamMoveSpeed: 5
   freeCamLookSensitivity: 3
-  sprintMultiplier: 4
+  sprintMultiplier: 8
   numPowerupAirJumps: 2
   faceValueThatAllowsAirJumps: 3
   airJumpForceMultiplier: 2.5
