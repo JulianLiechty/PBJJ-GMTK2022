@@ -107,9 +107,11 @@ MonoBehaviour:
   cameraFollowDistance: -9.25
   cameraFollowHeight: 2.5
   radius: 5.03
-  minVerticalAim: -3
-  maxVerticalAim: 0
-  Charge: 15
+  minVerticalAimIndicator: -8.26
+  maxVerticalAimIndicator: 0
+  minVerticalAimCamera: 0.3
+  maxVerticalAimCamera: 9.67
+  Charge: 50
   MaxCharge: 35
   CanHitDiceInAir: 0
   freeCamMoveSpeed: 5
