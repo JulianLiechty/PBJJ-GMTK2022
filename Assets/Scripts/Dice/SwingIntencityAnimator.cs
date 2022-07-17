@@ -26,6 +26,7 @@ public class SwingIntencityAnimator : MonoBehaviour
 
     private void OnDiceLaunched()
     {
+        animator.SetFloat("Charging", 0);
         animator.SetTrigger("Launch");
     }
 
