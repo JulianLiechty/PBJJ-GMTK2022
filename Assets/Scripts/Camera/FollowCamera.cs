@@ -72,8 +72,14 @@ public class FollowCamera : MonoBehaviour
     public delegate void SwingIntensity(float Val);
     public event SwingIntensity SwingForcePercentage;
 
+    // Dice Launched
     public delegate void DiceLaunched();
     public event DiceLaunched DiceLaunchedEvent;
+
+    // Aim changed while charging swing.
+    public delegate void AimChanged();
+    public event AimChanged AimChangedEvent;
+    private bool charging = false;
 
     private void Awake()
     {
