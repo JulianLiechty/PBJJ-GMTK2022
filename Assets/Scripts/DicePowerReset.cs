@@ -26,5 +26,6 @@ public class DicePowerReset : MonoBehaviour
     private void DiceLaunchedInAirEvent()
     {
         animator.SetTrigger("MultiHit");
+        Debug.Log("WHACK!!!");
     }
 }
