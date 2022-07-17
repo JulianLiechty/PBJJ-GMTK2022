@@ -102,20 +102,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f0fe0f462508c4f87174ec77c11a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSensitivity: 0.01
-  cameraFollowDistance: -6.5
-  cameraFollowHeight: 3.78
+  cameraSensitivity: 0.02
+  cameraFollowDistance: -9.25
+  cameraFollowHeight: 2.5
   radius: 5.03
-  minVerticalAim: -6
-  maxVerticalAim: 1
-  Charge: 10
-  MaxCharge: 50
+  minVerticalAim: -3
+  maxVerticalAim: 0
+  Charge: 15
+  MaxCharge: 35
   CanHitDiceInAir: 0
   freeCamMoveSpeed: 5
   freeCamLookSensitivity: 3
-  sprintMultiplier: 2
+  sprintMultiplier: 8
   numPowerupAirJumps: 2
   faceValueThatAllowsAirJumps: 3
+  airJumpForceMultiplier: 2.5
+  EvaluationInterval: 2
 --- !u!1818360608 &2196284955159375284
 PositionConstraint:
   m_ObjectHideFlags: 0

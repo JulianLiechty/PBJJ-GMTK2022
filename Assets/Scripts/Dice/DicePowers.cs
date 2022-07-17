@@ -46,16 +46,14 @@ public class DicePowers : MonoBehaviour
     {
         // Increase bounciness
         Debug.Log("Bounciness Increase.");
-        collider.material.dynamicFriction = lessFriction;
-        collider.material.dynamicFriction = lessFriction;
         collider.material.bounciness = moreBounciness;
     }
     public void Face3Power()
     {
         // Multi hit
         Debug.Log("MULTI HIT.");
-        collider.material.dynamicFriction = moreFriction;
-        collider.material.staticFriction = moreFriction;
+        //collider.material.dynamicFriction = moreFriction;
+        //collider.material.staticFriction = moreFriction;
     }
     public void Face4Power()
     {
