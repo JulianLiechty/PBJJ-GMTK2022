@@ -652,6 +652,7 @@ MonoBehaviour:
   dice: {fileID: 9121368440694240295}
   maxForce: 500
   minForce: 100
+  AimTickNoiseFrequencyInSeconds: 0
 --- !u!114 &673768772150842888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +695,7 @@ MonoBehaviour:
   Left: 3
   Back: 2
   Up: 1
+  dice: {fileID: 9121368440694240295}
 --- !u!54 &519124852140902614
 Rigidbody:
   m_ObjectHideFlags: 0

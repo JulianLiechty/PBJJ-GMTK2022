@@ -19,6 +19,9 @@ public class DiceSolver : MonoBehaviour
     [SerializeField]
     private int Up = 6;
 
+    [SerializeField]
+    private GameObject dice;
+
     private bool ShouldEvaluate = false;
 
     public delegate int DiceValue(int Val);
@@ -40,6 +43,7 @@ public class DiceSolver : MonoBehaviour
             OnDiceStop(value);
             ApplyPowersFromFaceUp(value);
             ShouldEvaluate = false;
+            FMODUnity.RuntimeManager.PlayOneShotAttached("Event:/SFX/SFX_PowerUp_Generic", dice);
         }
     }
 

@@ -20,7 +20,7 @@ public class HitDetection : MonoBehaviour
     {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/SFX/SFX_CollideGround", dice);
+            FMODUnity.RuntimeManager.PlayOneShotAttached("Event:/SFX/SFX_DieRoll", dice);
             DiceHitEvent();
         }
 
