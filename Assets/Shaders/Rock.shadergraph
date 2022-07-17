@@ -20,6 +20,9 @@
         },
         {
             "m_Id": "475df319ef9a4ca2a2305cb8385b27b0"
+        },
+        {
+            "m_Id": "99d9aaeb51524f019d600473bc6f6a7a"
         }
     ],
     "m_Keywords": [],
@@ -101,6 +104,9 @@
         },
         {
             "m_Id": "52d44d59050b42259e27351662ad6745"
+        },
+        {
+            "m_Id": "13a9b3706e6a4b7390f48e2e3a2780d1"
         }
     ],
     "m_GroupDatas": [],
@@ -132,6 +138,20 @@
                     "m_Id": "4d3c6b6cd24f40249ae926eb42e47adf"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "13a9b3706e6a4b7390f48e2e3a2780d1"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "1a39bca1eaf74935986c00155f147a47"
+                },
+                "m_SlotId": 1
             }
         },
         {
@@ -443,7 +463,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Scale",
     "m_StageCapability": 3,
-    "m_Value": 10.0,
+    "m_Value": 4.349999904632568,
     "m_DefaultValue": 10.0,
     "m_Labels": []
 }
@@ -601,6 +621,41 @@
         "e31": 0.0,
         "e32": 0.0,
         "e33": 1.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "13a9b3706e6a4b7390f48e2e3a2780d1",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1753.0,
+            "y": 737.0,
+            "width": 150.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "c5861672fe21489a90633ac6a82257c2"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "99d9aaeb51524f019d600473bc6f6a7a"
     }
 }
 
@@ -1701,6 +1756,33 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "99d9aaeb51524f019d600473bc6f6a7a",
+    "m_Guid": {
+        "m_GuidSerialized": "79e653a7-38ae-4437-9c2c-a6001c6b83aa"
+    },
+    "m_Name": "GradiantNoise",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "GradiantNoise",
+    "m_DefaultReferenceName": "_GradiantNoise",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 4.849999904632568,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "9f69dd3188224b81a57da35db78b0abe",
@@ -2155,6 +2237,21 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "c5861672fe21489a90633ac6a82257c2",
+    "m_Id": 0,
+    "m_DisplayName": "GradiantNoise",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "c5eba890e6f74c6ab8cf0658dd4d6bf8",
     "m_Id": 1,
     "m_DisplayName": "Width",
@@ -2223,6 +2320,9 @@
         },
         {
             "m_Id": "475df319ef9a4ca2a2305cb8385b27b0"
+        },
+        {
+            "m_Id": "99d9aaeb51524f019d600473bc6f6a7a"
         }
     ]
 }
@@ -2336,7 +2436,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "AngleOffset",
     "m_StageCapability": 3,
-    "m_Value": 5.0,
+    "m_Value": -2.75,
     "m_DefaultValue": 2.0,
     "m_Labels": []
 }
