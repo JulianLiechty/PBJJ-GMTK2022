@@ -21,7 +21,7 @@ public class SwingIntencityAnimator : MonoBehaviour
     private void OnSwingForceIntensityChange(float percentagePower)
     {
         animator.SetFloat("Charging", percentagePower);
-        Debug.Log("Percentage power: " + percentagePower);
+        //Debug.Log("Percentage power: " + percentagePower);
     }
 
     private void OnDiceLaunched()
