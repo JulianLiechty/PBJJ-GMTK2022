@@ -101,6 +101,9 @@ public class FollowCamera : MonoBehaviour
 
         //Binds the stop event on the dice to a function in this script
         DiceObject.GetComponent<DiceSolver>().OnDiceStop += DiceStop;
+
+        freeCamLookSensitivity = GameManager.instance.freeCamSens;
+        cameraSensitivity = GameManager.instance.swingCamSens;
     }
 
     // Start is called before the first frame update

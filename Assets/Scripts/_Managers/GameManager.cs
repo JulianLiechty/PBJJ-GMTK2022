@@ -11,12 +11,13 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
-    float freeCamSens = 0.5f;
-    float swingCamSens = 0.5f;
+    public float freeCamSens { get; private set; }
+    public float swingCamSens { get; private set; }
 
     void Start()
     {
-
+        freeCamSens = 3f;
+        swingCamSens = 0.06f;
     }
 
     private void Awake()

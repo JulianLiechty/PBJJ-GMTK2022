@@ -12,7 +12,7 @@ public class DicePowerReset : MonoBehaviour
         GameObject DiceObject = GameObject.FindGameObjectsWithTag("Dice")[0];
         DiceObject.GetComponent<DiceSolver>().OnDiceStop += OnSideChanged;
 
-        GameObject FolowCam = GameObject.FindGameObjectsWithTag("Camera")[0];
+        GameObject FolowCam = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         FolowCam.GetComponent<FollowCamera>().DiceLaunchedInAirEvent += DiceLaunchedInAirEvent;
     }
 
