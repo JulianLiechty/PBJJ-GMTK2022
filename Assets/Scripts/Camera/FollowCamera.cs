@@ -72,8 +72,14 @@ public class FollowCamera : MonoBehaviour
     public delegate void SwingIntensity(float Val);
     public event SwingIntensity SwingForcePercentage;
 
+    // Dice Launched
     public delegate void DiceLaunched();
     public event DiceLaunched DiceLaunchedEvent;
+
+    // Aim changed while charging swing.
+    public delegate void AimChanged();
+    public event AimChanged AimChangedEvent;
+    private bool charging = false;
 
     private void Awake()
     {
@@ -182,16 +188,17 @@ public class FollowCamera : MonoBehaviour
         //Debug.Log(SwingForce);
 
         // Register Inputs
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && CanTossDice)
         {
             //only sets to false in case we don't want the dice being hit in mid air
             if(!CanHitDiceInAir || airJumpsUsed >= numPowerupAirJumps)
                 CanTossDice = false;
 
-            if(CanHitDiceInAir && airJumpsUsed > 1)
+            if(CanTossDice && CanHitDiceInAir && airJumpsUsed > 1)
                 roller.ShouldSwing(SwingForce * airJumpForceMultiplier);
             else
                 roller.ShouldSwing(SwingForce);
+                
             DiceLaunchedEvent();
             airJumpsUsed++;
             SwingForce = 0;
