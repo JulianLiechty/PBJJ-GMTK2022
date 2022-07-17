@@ -9,6 +9,7 @@ TagManager:
   - Slider
   - MainText
   - SideText
+  - BounceOnPad
   layers:
   - Default
   - TransparentFX
