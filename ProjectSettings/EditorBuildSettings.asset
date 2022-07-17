@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 1b16854b17ed3af4d9043acc2b6c98a6
   - enabled: 1
-    path: Assets/Scenes/GolfSwingTest.unity
-    guid: a014474ce325e4147887f53c40c8c10d
+    path: Assets/Scenes/LukeLevelDesign.unity
+    guid: f529d3b9eefc8fe448e89346232b2fb2
   m_configObjects: {}

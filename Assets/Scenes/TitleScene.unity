@@ -6146,8 +6146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamescene:
-    sceneAsset: {fileID: 102900000, guid: a014474ce325e4147887f53c40c8c10d, type: 3}
-    scenePath: Assets/Scenes/GolfSwingTest.unity
+    sceneAsset: {fileID: 102900000, guid: f529d3b9eefc8fe448e89346232b2fb2, type: 3}
+    scenePath: Assets/Scenes/LukeLevelDesign.unity
 --- !u!1 &2116167214
 GameObject:
   m_ObjectHideFlags: 0
