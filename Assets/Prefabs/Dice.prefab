@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 4627430066523755186}
   - component: {fileID: 1554637901410176378}
   - component: {fileID: 4960763129629337635}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3273100355396593119}
   - component: {fileID: 5300506437170250784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FaceRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 8932968232830752187}
   - component: {fileID: 1144738023060700263}
   - component: {fileID: 41049657495314390}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Goo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,6 +836,10 @@ PrefabInstance:
     - target: {fileID: 5026763535500864851, guid: 5a0004f55556842f4982f4565c085f88, type: 3}
       propertyPath: InitialModule.startColor.minColor.r
       value: 0.61411715
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624996021338367983, guid: 5a0004f55556842f4982f4565c085f88, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8107768826242202387, guid: 5a0004f55556842f4982f4565c085f88, type: 3}
       propertyPath: m_RootOrder

@@ -16,9 +16,14 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     private float radius;
     [SerializeField]
-    private float minVerticalAim;
+    private float minVerticalAimIndicator;
     [SerializeField]
-    private float maxVerticalAim;
+    private float maxVerticalAimIndicator;
+    [SerializeField]
+    private float minVerticalAimCamera;
+    [SerializeField]
+    private float maxVerticalAimCamera;
+
 
     [SerializeField]
     private float Charge = 2f;
@@ -48,7 +53,7 @@ public class FollowCamera : MonoBehaviour
     private Vector3 currentRotation;
     private PositionConstraint positionConstraint;
     private AimConstraint aimConstraint;
-    private float verticalAim = 0;
+    private float swingIndicatorVerticalAngle = 0;
     private bool freeCamEnabled = false;
     private float yRotation = 0f;
     private float xRotation = 0f;
@@ -210,8 +215,8 @@ public class FollowCamera : MonoBehaviour
             StartCoroutine(SetCanEvaluate());
         }
 
-        verticalAim += Input.GetAxis("Mouse Y") * cameraSensitivity;
-        verticalAim = Mathf.Clamp(verticalAim, minVerticalAim, maxVerticalAim);
+        swingIndicatorVerticalAngle += Input.GetAxis("Mouse Y") * cameraSensitivity;
+        swingIndicatorVerticalAngle = Mathf.Clamp(swingIndicatorVerticalAngle, minVerticalAimIndicator, maxVerticalAimIndicator);
 
         PrepareInformationForSwingRenderer();
         PositionSwingCamera();
@@ -250,44 +255,51 @@ public class FollowCamera : MonoBehaviour
         yield return new WaitForSeconds(EvaluationInterval);
 
         DiceObject.GetComponent<DiceSolver>().CanEvaluate = true;
-
-        Debug.Log("ready");
     }
 
     private void PrepareInformationForSwingRenderer()
     {
         Vector3 direction = transform.position - DiceObject.transform.position;
-        direction.y = verticalAim;
+        direction.y = swingIndicatorVerticalAngle;
         swingRenderer.UpdateRenderer(direction.normalized);
     }
 
     private void PositionSwingCamera()
     {
-        // Get the amount of rotation required for the camera.
-        float rotation = Input.GetAxis("Mouse X") * cameraSensitivity;
-       
+        // Get the vertical and horizontal rotation for the camera.
+        float hRotation = Input.GetAxis("Mouse X") * cameraSensitivity;
+        float vRotation = Input.GetAxis("Mouse Y") * cameraSensitivity;
+
+
         // If the swing is charging, and there is some form of rotation.
-        if (charging && rotation != 0)
+        if (charging && hRotation != 0)
             if(AimChangedEvent is not null)
                 AimChangedEvent();
 
-        // Rotate the constraints to create the rotation effect.
-        RotateConstraint(rotation);
+        // Rotate the constraints to create the horizontal orbital rotation effect.
+        RotateConstraint(hRotation, vRotation);
     }
 
     /// <summary>
     /// Rotates the x and z values of the constraints to create horizontal rotation around the dice.
     /// </summary>
-    /// <param name="angle">How much to turn.</param>
-    public void RotateConstraint(float angle)
+    /// <param name="hAngle">How much to turn horizontally.</param>
+    /// <param name="vAngle">How much to turn vertically.</param>
+    public void RotateConstraint(float hAngle, float vAngle)
     {
+        // Horizontal movement
+
         // Rotate the vector representing the rotation of the camera.
         // I pretended the rotation was a 2d vector and rotated that.
-        float x = currentRotation.x * Mathf.Cos(angle) - currentRotation.z * Mathf.Sin(angle);
-        float z = currentRotation.x * Mathf.Sin(angle) + currentRotation.z * Mathf.Cos(angle);
+        float x = currentRotation.x * Mathf.Cos(hAngle) - currentRotation.z * Mathf.Sin(hAngle);
+        float z = currentRotation.x * Mathf.Sin(hAngle) + currentRotation.z * Mathf.Cos(hAngle);
+
+        // Vertical movement
+        currentRotation.y += vAngle;
+        currentRotation.y = Mathf.Clamp(currentRotation.y, minVerticalAimCamera, maxVerticalAimCamera);
 
         // Store the new rotation value.
-        currentRotation = new Vector3(x, cameraFollowHeight, z);
+        currentRotation = new Vector3(x, currentRotation.y, z);
 
         // Set the new constraint.
         positionConstraint.translationOffset = currentRotation;
