@@ -15,6 +15,7 @@ public class DicePowerReset : MonoBehaviour
 
     private int OnSideChanged(int side)
     {
+        animator.SetTrigger("Reset");
         animator.SetInteger("FaceNumber", side);
         return 0;
     }
