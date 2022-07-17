@@ -13,6 +13,7 @@ public class VolumeManager : MonoBehaviour
 
     FMOD.Studio.Bus Music;
     FMOD.Studio.Bus SFX;
+    FMOD.Studio.Bus Ambience;
     FMOD.Studio.Bus Master;
     float MusicVolume = 0.5f;
     float SFXVolume = 0.5f;
@@ -25,9 +26,10 @@ public class VolumeManager : MonoBehaviour
             Destroy(instance.instanceObject);
         }
 
-        Music = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
-        SFX = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
-        Master = FMODUnity.RuntimeManager.GetBus("bus:/Master");
+        Music = FMODUnity.RuntimeManager.GetBus("bus:/MASTER/MUSIC");
+        Ambience = FMODUnity.RuntimeManager.GetBus("bus:/MASTER/AMBIENCE");
+        SFX = FMODUnity.RuntimeManager.GetBus("bus:/MASTER/SOUND EFFECTS");
+        Master = FMODUnity.RuntimeManager.GetBus("bus:/MASTER");
         SFXVolumeTestEvent = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/SFX_DieRoll");
 
         instance = this;
@@ -38,6 +40,7 @@ public class VolumeManager : MonoBehaviour
         Music.setVolume(MusicVolume);
         SFX.setVolume(SFXVolume);
         Master.setVolume(MasterVolume);
+        Ambience.setVolume(MusicVolume);
     }
 
     public void MasterVolumeLevel(float newMasterVolume)
