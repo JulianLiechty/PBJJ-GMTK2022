@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2311556132449576258}
   m_Layer: 0
-  m_Name: Tree001
+  m_Name: TreeTall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 14f91493e37734a10a857744d673b6b8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f8354dbc0ba1743be8240e2f01e67525, type: 2}
+      objectReference: {fileID: 2100000, guid: ac209e91b8452114c85117d5109da4e6, type: 2}
     - target: {fileID: -5681698246086141726, guid: 14f91493e37734a10a857744d673b6b8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
