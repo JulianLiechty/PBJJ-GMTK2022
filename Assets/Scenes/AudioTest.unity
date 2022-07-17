@@ -1434,7 +1434,7 @@ MonoBehaviour:
       Data2: 1268302314
       Data3: 44435080
       Data4: -115499482
-    Path: event:/AMB_Field
+    Path: event:/AMB/AMB_Field
   Event: 
   PlayEvent: 1
   StopEvent: 0
@@ -1481,7 +1481,7 @@ MonoBehaviour:
       Data4: 567868447
     Path: event:/MUS/MUS_Loopster
   Event: 
-  PlayEvent: 1
+  PlayEvent: 7
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
