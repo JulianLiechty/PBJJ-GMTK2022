@@ -5,6 +5,8 @@ using UnityEngine;
 public class VolcanoScript : MonoBehaviour
 {
     private BoxCollider boxCollider;
+    [SerializeField]
+    private GameObject WinScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,7 @@ public class VolcanoScript : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Dice"))
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached("Event:/AMB/AMB_Volcano", this.gameObject);
+            WinScreen.gameObject.SetActive(true);
         }
     }
 }
