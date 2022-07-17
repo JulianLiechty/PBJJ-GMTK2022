@@ -72,6 +72,9 @@ public class FollowCamera : MonoBehaviour
     public delegate void SwingIntensity(float Val);
     public event SwingIntensity SwingForcePercentage;
 
+    public delegate void DiceLaunched();
+    public event DiceLaunched DiceLaunchedEvent;
+
     private void Awake()
     {
         // Grab the constraint components from the camera.
@@ -189,6 +192,7 @@ public class FollowCamera : MonoBehaviour
                 roller.ShouldSwing(SwingForce * airJumpForceMultiplier);
             else
                 roller.ShouldSwing(SwingForce);
+            DiceLaunchedEvent();
             airJumpsUsed++;
             SwingForce = 0;
 

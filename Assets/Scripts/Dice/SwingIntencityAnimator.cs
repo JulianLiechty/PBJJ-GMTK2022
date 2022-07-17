@@ -6,11 +6,16 @@ public class SwingIntencityAnimator : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private HitDetection diceHitDetector;
     private GameObject CameraObject;
+
     void Awake()
     {
         CameraObject = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         CameraObject.GetComponent<FollowCamera>().SwingForcePercentage += OnSwingForceIntensityChange;
+        CameraObject.GetComponent<FollowCamera>().DiceLaunchedEvent += OnDiceLaunched;
+        diceHitDetector.DiceHitEvent += OnDiceHit;
     }
 
     private void OnSwingForceIntensityChange(float percentagePower)
@@ -19,6 +24,15 @@ public class SwingIntencityAnimator : MonoBehaviour
         Debug.Log("Percentage power: " + percentagePower);
     }
 
-    //animator.SetTrigger("Launch");
-    //animator.SetTrigger("Hit");
+    private void OnDiceLaunched()
+    {
+        animator.SetTrigger("Launch");
+    }
+
+    private void OnDiceHit()
+    {
+        animator.SetTrigger("Hit");
+    }
+
+
 }
